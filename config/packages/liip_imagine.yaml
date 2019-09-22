@@ -8,6 +8,16 @@ liip_imagine:
                 thumbnail:
                     size: [1920, 500]
                     mode: outbound
+        bandeau_small:
+            filters:
+                thumbnail:
+                    size: [320, 500]
+                    mode: outbound
+        bandeau_medium:
+            filters:
+                thumbnail:
+                    size: [640, 500]
+                    mode: outbound
         tool:
             filters:
                 relative_resize:

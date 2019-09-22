@@ -1,3 +1,16 @@
 <div class="bandeau">
-    <img src="{{ 'images/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg'|imagine_filter('bandeau') }}" alt="Bandeau développeur" class="img-fluid">
+    <img src="{{ 'images/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg'|imagine_filter('bandeau') }}"
+         srcset="{{ 'images/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg'|imagine_filter('bandeau_small') }} 320w,
+             {{ 'images/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg'|imagine_filter('bandeau_medium') }} 640w,
+             {{ 'images/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg'|imagine_filter('bandeau') }} 1920w"
+         alt="Bandeau développeur" class="img-fluid">
+    <div class="box">
+        <div class="container content">
+            <h1>
+                Développeur WEB
+                <br>
+                <small>Robin Parisot</small>
+            </h1>
+        </div>
+    </div>
 </div>
