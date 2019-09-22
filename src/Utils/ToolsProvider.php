@@ -58,7 +58,14 @@ class ToolsProvider
             [
                 self::NAME  => 'Symfony',
                 self::LINK  => '//symfony.com',
+                self::VERSIONS => ['3', '4'],
                 self::IMAGE => self::BASE_PATH . 'symfony.png',
+            ],
+            [
+                self::NAME  => 'Magento',
+                self::LINK  => '//magento.com',
+                self::VERSIONS => ['2'],
+                self::IMAGE => self::BASE_PATH . 'magento.png',
             ],
         ];
     }
@@ -73,6 +80,16 @@ class ToolsProvider
                 self::NAME  => 'GIT',
                 self::LINK  => '//git-scm.com',
                 self::IMAGE => self::BASE_PATH . 'git.png',
+            ],
+            [
+                self::NAME  => 'Google Analytics',
+                self::LINK  => '//analytics.google.com',
+                self::IMAGE => self::BASE_PATH . 'google-analytics.png',
+            ],
+            [
+                self::NAME  => 'Docker',
+                self::LINK  => '//www.docker.com',
+                self::IMAGE => self::BASE_PATH . 'docker.png',
             ],
         ];
     }

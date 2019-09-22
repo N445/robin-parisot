@@ -4,12 +4,12 @@
             {% if tool.link is defined %}
             <a href="{{ tool.link }}" target="_blank" title="{{ tool.name }}">
                 {% endif %}
-                <div class="bg-gradiant p-5 shadow text-center h-100">
+                <div class="bg-gradiant py-5 px-2  d-flex flex-column justify-content-center align-items-center shadow text-center h-100">
                     <h4>{{ tool.name }}</h4>
                     {% if tool.versions is defined %}
                         <span class="versions">
                             {% for version in tool.versions %}
-                                <span class="badge badge-info version">{{ version }}</span>
+                                <span class="badge badge-info version">v {{ version }}</span>
                             {% endfor %}
                         </span>
                     {% endif %}

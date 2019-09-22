@@ -3,20 +3,31 @@
 {% block title %}Robin Parisot - Développeur WEB{% endblock %}
 
 {% block body %}
+    <div id="top"></div>
     {# TOP NAV #}
     {% include 'includes/navigation.html.twig' %}
     {# BANDEAU #}
     {% include 'includes/bandeau.html.twig' %}
     <div class="container">
         {# OUTILS FRONT #}
-        {% include 'includes/tools/front.html.twig' %}
+        <div id="tools-front">
+            {% include 'includes/tools/front.html.twig' %}
+        </div>
         {# OUTILS BACK #}
-        {% include 'includes/tools/back.html.twig' %}
+        <div id="tools-back">
+            {% include 'includes/tools/back.html.twig' %}
+        </div>
         {# OUTILS DIVERS #}
-        {% include 'includes/tools/other.html.twig' %}
+        <div id="tools-other">
+            {% include 'includes/tools/other.html.twig' %}
+        </div>
         {# PORTFOLIO #}
-        {% include 'includes/portfolio.html.twig' %}
+        {#<div id="portfolio">
+            {% include 'includes/portfolio.html.twig' %}
+        </div>#}
         {# OUTILS CONTACT #}
-        {% include 'includes/contact.html.twig' %}
+        <div id="contact">
+            {% include 'includes/contact.html.twig' %}
+        </div>
     </div>
 {% endblock %}
