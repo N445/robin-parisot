@@ -7,7 +7,7 @@ class ToolsProvider
     const NAME      = 'name';
     const LINK      = 'link';
     const IMAGE     = 'image';
-    const VERSIONS   = 'versions';
+    const VERSIONS  = 'versions';
     const BASE_PATH = 'images/tools/';
 
     /**
@@ -15,12 +15,12 @@ class ToolsProvider
      */
     public static function getToolsFront()
     {
-        return [
+        $data = [
             [
-                self::NAME    => 'Bootsrap',
-                self::LINK    => '//getbootstrap.com',
+                self::NAME     => 'Bootsrap',
+                self::LINK     => '//getbootstrap.com',
                 self::VERSIONS => ['3', '4'],
-                self::IMAGE   => self::BASE_PATH . 'bootstrap.png',
+                self::IMAGE    => self::BASE_PATH . 'bootstrap.png',
             ],
             [
                 self::NAME  => 'Grunt',
@@ -47,6 +47,8 @@ class ToolsProvider
                 self::IMAGE => self::BASE_PATH . 'jquery.png',
             ],
         ];
+        usort($data, [self::class, 'sortByName']);
+        return $data;
     }
 
     /**
@@ -54,20 +56,22 @@ class ToolsProvider
      */
     public static function getToolsBack()
     {
-        return [
+        $data = [
             [
-                self::NAME  => 'Symfony',
-                self::LINK  => '//symfony.com',
+                self::NAME     => 'Symfony',
+                self::LINK     => '//symfony.com',
                 self::VERSIONS => ['3', '4'],
-                self::IMAGE => self::BASE_PATH . 'symfony.png',
+                self::IMAGE    => self::BASE_PATH . 'symfony.png',
             ],
             [
-                self::NAME  => 'Magento',
-                self::LINK  => '//magento.com',
+                self::NAME     => 'Magento',
+                self::LINK     => '//magento.com',
                 self::VERSIONS => ['2'],
-                self::IMAGE => self::BASE_PATH . 'magento.png',
+                self::IMAGE    => self::BASE_PATH . 'magento.png',
             ],
         ];
+        usort($data, [self::class, 'sortByName']);
+        return $data;
     }
 
     /**
@@ -75,7 +79,7 @@ class ToolsProvider
      */
     public static function getToolsOther()
     {
-        return [
+        $data = [
             [
                 self::NAME  => 'GIT',
                 self::LINK  => '//git-scm.com',
@@ -91,6 +95,21 @@ class ToolsProvider
                 self::LINK  => '//www.docker.com',
                 self::IMAGE => self::BASE_PATH . 'docker.png',
             ],
+            [
+                self::NAME  => 'Bash',
+                self::IMAGE => self::BASE_PATH . 'bash.png',
+            ],
+            [
+                self::NAME  => 'Linux <br>(client & serveur)',
+                self::IMAGE => self::BASE_PATH . 'linux.png',
+            ],
         ];
+        usort($data, [self::class, 'sortByName']);
+        return $data;
+    }
+
+    public static function sortByName($a, $b)
+    {
+        return strcmp($a[self::NAME], $b[self::NAME]);
     }
 }

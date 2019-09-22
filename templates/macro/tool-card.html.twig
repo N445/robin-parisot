@@ -1,11 +1,14 @@
-{% macro toolCard(tool) %}
-    <div class="col-6 col-md-3 mb-5">
+{% macro toolCard(tool, i = 0) %}
+    <div class="col-6 col-md-3 mb-5 wow slideInUp" data-wow-delay="{{ 100*i }}ms">
         <div class="tool">
             {% if tool.link is defined %}
             <a href="{{ tool.link }}" target="_blank" title="{{ tool.name }}">
                 {% endif %}
                 <div class="bg-gradiant py-5 px-2  d-flex flex-column justify-content-center align-items-center shadow text-center h-100">
-                    <h4>{{ tool.name }}</h4>
+                    <h4>{{ tool.name|raw }}</h4>
+                    {% if tool.link is defined %}
+                        <i class="fas fa-external-link-alt link"></i>
+                    {% endif %}
                     {% if tool.versions is defined %}
                         <span class="versions">
                             {% for version in tool.versions %}
@@ -14,8 +17,10 @@
                         </span>
                     {% endif %}
                     {% if tool.image %}
-                        <img src="{{ tool.image|imagine_filter('tool') }}" alt="{{ tool.name }}"
-                             class="img-fluid mt-2 shadow p-2 bg-white">
+                        <div class="image mt-2 shadow p-2 bg-white">
+                            <img src="{{ tool.image|imagine_filter('tool') }}" alt="{{ tool.name }}"
+                                 class="img-fluid">
+                        </div>
                     {% endif %}
                 </div>
                 {% if tool.link is defined %}

@@ -1,7 +1,7 @@
 {% import 'macro/tool-card.html.twig' as toolMacro %}
 <h2>Autres outils</h2>
 <div class="row justify-content-center">
-    {% for toolOther in toolsOther %}
-        {{ toolMacro.toolCard(toolOther ) }}
+    {% for i,toolOther in toolsOther %}
+        {{ toolMacro.toolCard(toolOther,i) }}
     {% endfor %}
 </div>

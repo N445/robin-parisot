@@ -1,5 +1,9 @@
 require('bootstrap');
+require('@fortawesome/fontawesome-free/css/all.min.css');
+require('@fortawesome/fontawesome-free/js/all.js');
+import WOW from 'wow.js';
 $(document).ready(function () {
+    new WOW().init();
     $('[data-toggle="popover"]').popover();
     $('.navbar-nav .nav-item').on('click', function (e) {
         e.preventDefault();

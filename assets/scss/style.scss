@@ -1,5 +1,6 @@
 @import "imports/variables";
 @import "~bootstrap/scss/bootstrap";
+@import "~animate.css/animate.min.css";
 @import "imports/mixins";
 
 .btn-gradiant {
@@ -19,6 +20,11 @@
   transition: .1s ease-in-out all;
   position: relative;
   height: 100%;
+  .link {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
   .versions {
     position: absolute;
     top: 5px;
