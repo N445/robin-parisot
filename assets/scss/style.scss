@@ -1,1 +1,12 @@
+@import "imports/variables";
 @import "~bootstrap/scss/bootstrap";
+@import "imports/mixins";
+
+.btn-gradiant {
+  @include button-gradiant-variant($custom-primary, $custom-secondary, $custom-primary);
+}
+
+.bg-gradiant {
+  background: $custom-primary linear-gradient(45deg, $custom-primary, $custom-secondary) repeat-x;
+  color: color-yiq($custom-primary);
+}
