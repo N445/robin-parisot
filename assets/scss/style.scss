@@ -10,3 +10,25 @@
   background: $custom-primary linear-gradient(45deg, $custom-primary, $custom-secondary) repeat-x;
   color: color-yiq($custom-primary);
 }
+
+.shadow-image {
+  filter: drop-shadow(0 5px 5px rgba(#333, .6));
+}
+
+.tool {
+  transition: .1s ease-in-out all;
+  position: relative;
+  height: 100%;
+  .versions {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+  &:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: $box-shadow-lg;
+    a {
+      text-decoration: none;
+    }
+  }
+}
