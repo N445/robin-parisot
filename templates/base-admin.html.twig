@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Robin Parisot - Développeur WEB{% endblock %}</title>
+    {{ encore_entry_link_tags('css/style') }}
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% include 'includes/admin/navigation.html.twig' %}
+<div class="container">
+    <h1>Salut dans l'admin gros</h1>
+    {% block body %}{% endblock %}
+</div>
+{{ encore_entry_script_tags('js/app') }}
+{% block javascripts %}{% endblock %}
+</body>
+</html>
