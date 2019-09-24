@@ -36,7 +36,7 @@ class ContactController extends AbstractController
     public function index(ContactRepository $contactRepository): Response
     {
         return $this->render('contact/index.html.twig', [
-            'contacts'      => $contactRepository->findAll(),
+            'contacts'      => $contactRepository->findBy([], ['send_at' => 'DESC']),
             'current_group' => self::CURRENT_GROUP,
         ]);
     }
