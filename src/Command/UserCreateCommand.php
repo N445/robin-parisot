@@ -46,6 +46,7 @@ class UserCreateCommand extends Command
 
         $user = new User();
         $user->setUsername('robin')
+             ->setRoles(['ROLE_ADMIN'])
              ->setPassword($this->passwordEncoder->encodePassword($user, 'robin'))
         ;
 

@@ -12,7 +12,9 @@
 <body>
 {% include 'includes/admin/navigation.html.twig' %}
 <div class="container">
-    <h1>Salut dans l'admin gros</h1>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <h1>Salut dans l'admin gros</h1>
+    {% endif %}
     {% block body %}{% endblock %}
 </div>
 {{ encore_entry_script_tags('js/app') }}
