@@ -41,16 +41,39 @@ class Contact
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $send_at;
+
+    /**
+     * Contact constructor.
+     */
+    public function __construct()
+    {
+        $this->send_at = new \DateTime("NOW");
+    }
+
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getFirstname(): ?string
     {
         return $this->firstname;
     }
 
+    /**
+     * @param string $firstname
+     * @return Contact
+     */
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
@@ -58,11 +81,18 @@ class Contact
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getLastname(): ?string
     {
         return $this->lastname;
     }
 
+    /**
+     * @param string $lastname
+     * @return Contact
+     */
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
@@ -70,11 +100,18 @@ class Contact
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return Contact
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -82,11 +119,18 @@ class Contact
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getSubject(): ?string
     {
         return $this->subject;
     }
 
+    /**
+     * @param string $subject
+     * @return Contact
+     */
     public function setSubject(string $subject): self
     {
         $this->subject = $subject;
@@ -94,14 +138,40 @@ class Contact
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getMessage(): ?string
     {
         return $this->message;
     }
 
+    /**
+     * @param string $message
+     * @return Contact
+     */
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getSendAt(): ?\DateTimeInterface
+    {
+        return $this->send_at;
+    }
+
+    /**
+     * @param \DateTimeInterface $send_at
+     * @return Contact
+     */
+    public function setSendAt(\DateTimeInterface $send_at): self
+    {
+        $this->send_at = $send_at;
 
         return $this;
     }

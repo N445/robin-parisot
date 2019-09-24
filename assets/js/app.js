@@ -5,7 +5,7 @@ import WOW from 'wow.js';
 $(document).ready(function () {
     new WOW().init();
     $('[data-toggle="popover"]').popover();
-    $('.navbar-nav .nav-item').on('click', function (e) {
+    $('.main-navbar .nav-item').on('click', function (e) {
         e.preventDefault();
         var $this = $(this);
         $('.navbar-nav .nav-item').removeClass('active');

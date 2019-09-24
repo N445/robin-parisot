@@ -1,0 +1,57 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Contact</h1>
+            <div class="top_btns mb-3">
+                <a class="btn btn-secondary" href="{{ path('contact_index') }}">
+                    Retour
+                </a>
+            </div>
+            <div class="table-responsive-sm">
+                <table class="table table-hover table-sm">
+                    <tbody>
+                                            <tr>
+                            <th>Firstname</th>
+                            <td>{{ contact.firstname }}</td>
+                        </tr>
+                                            <tr>
+                            <th>Lastname</th>
+                            <td>{{ contact.lastname }}</td>
+                        </tr>
+                                            <tr>
+                            <th>Email</th>
+                            <td>{{ contact.email }}</td>
+                        </tr>
+                                            <tr>
+                            <th>Subject</th>
+                            <td>{{ contact.subject }}</td>
+                        </tr>
+                                            <tr>
+                            <th>Message</th>
+                            <td>{{ contact.message }}</td>
+                        </tr>
+                                            <tr>
+                            <th>Send_at</th>
+                            <td>{{ contact.sendAt ? contact.sendAt|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+                                        </tbody>
+                </table>
+            </div>
+            <div class="bottom_btns mt-3">
+                <a class="btn btn-secondary" href="{{ path('contact_index') }}">
+                    Retour
+                </a>
+                <a class="btn btn-success"
+                   href="{{ path('contact_edit', {'id': contact.id}) }}">
+                    Modifier
+                </a>
+            </div>
+            {{ include('contact/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}
