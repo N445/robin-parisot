@@ -14,22 +14,38 @@ use App\Utils\ToolsProvider;
 
 class DefaultController extends AbstractController
 {
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+
+    /**
+     * DefaultController constructor.
+     * @param EntityManagerInterface $em
+     */
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+
     /**
      * @Route("/", name="homepage", methods={"GET","POST"}, options={"expose"=true})
-     * @param Request                $request
-     * @param EntityManagerInterface $em
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(Request $request, EntityManagerInterface $em)
+    public function index(Request $request)
     {
         $contact = new Contact();
         $form    = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
         if ($request->isXmlHttpRequest()) {
-            dump('$request->isXmlHttpRequest()');
-            dump(ContactPopulator::populate($request->request->get('contact')));
-            dump($form->isSubmitted());
-            dump($form->isValid());
+            $this->em->persist(ContactPopulator::populate($request->request->get('contact')));
+            $this->em->flush();
+            if ($form->isValid()) {
+                $contact = new Contact();
+                $form    = $this->createForm(ContactType::class, $contact);
+            }
             return new JsonResponse([
                 'success' => true,
                 'view'    => $this->renderView('includes/contact-form.html.twig', [
@@ -38,13 +54,6 @@ class DefaultController extends AbstractController
             ]);
         }
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // send contact
-            dump('$form->isSubmitted()');
-            dump($contact);
-            $em->persist($contact);
-            $em->flush();
-        }
         return $this->render('default/index.html.twig', [
             'toolsFront' => ToolsProvider::getToolsFront(),
             'toolsBack'  => ToolsProvider::getToolsBack(),

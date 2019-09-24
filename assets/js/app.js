@@ -33,7 +33,7 @@ $(document).ready(function () {
         });
     })
 
-    $('.contact-send').on('click', function (e) {
+    $('body').on('click', '.contact-send', function (e) {
         e.preventDefault();
         console.log($(this).parent('form').serialize());
         $.ajax({
