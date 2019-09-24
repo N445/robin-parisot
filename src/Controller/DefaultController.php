@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Helper\ContactPopulator;
+use App\Service\Recaptcha;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -49,7 +50,7 @@ class DefaultController extends AbstractController
             return new JsonResponse([
                 'success' => true,
                 'view'    => $this->renderView('includes/contact-form.html.twig', [
-                    'form' => $form->createView(),
+                    'form'      => $form->createView(),
                 ]),
             ]);
         }
@@ -59,6 +60,7 @@ class DefaultController extends AbstractController
             'toolsBack'  => ToolsProvider::getToolsBack(),
             'toolsOther' => ToolsProvider::getToolsOther(),
             'form'       => $form->createView(),
+            'recaptcha'  => Recaptcha::RECAPTCHA_KEY,
         ]);
     }
 }

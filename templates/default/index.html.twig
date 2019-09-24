@@ -33,3 +33,17 @@
         </div>
     </main>
 {% endblock %}
+
+{% block javascripts %}
+    <script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha }}"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha }}"></script>
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('{{ recaptcha }}', {action: 'homepage'}).then(function (token) {
+            grecaptcha.execute('{{ recaptcha }}', {action: 'homepage'}).then(function (token) {
+                $('#ID_INPUT_RECAPTCHA').val(token);
+            });
+        });
+    </script>
+
+{% endblock %}

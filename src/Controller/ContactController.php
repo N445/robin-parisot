@@ -49,7 +49,7 @@ class ContactController extends AbstractController
     public function new(Request $request): Response
     {
         $contact = new Contact();
-        $form    = $this->createForm(Contact2Type::class, $contact);
+        $form    = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->persist($contact);
@@ -82,7 +82,7 @@ class ContactController extends AbstractController
      */
     public function edit(Request $request, Contact $contact): Response
     {
-        $form = $this->createForm(Contact2Type::class, $contact);
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
