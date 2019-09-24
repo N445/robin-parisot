@@ -31,6 +31,17 @@
       top: 5px;
       left: 5px;
     }
+    .level {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      .bar {
+        background-color: darken($custom-secondary, 30);
+        color: color-yiq(darken($custom-secondary, 30));
+        font-size: 13px;
+      }
+    }
     &:hover {
       transform: translateY(-10px) scale(1.02);
       box-shadow: $box-shadow-lg;

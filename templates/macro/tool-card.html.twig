@@ -22,6 +22,15 @@
                                  class="img-fluid">
                         </div>
                     {% endif %}
+                    {% if tool.level %}
+                        <div class="level">
+                            <div class="bar" style="width: {{ tool.level }}%">
+                                <div class="note">
+                                    {{ tool.level }}%
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
                 {% if tool.link is defined %}
             </a>
