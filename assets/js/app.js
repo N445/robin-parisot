@@ -1,7 +1,12 @@
 require('bootstrap');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
+const routes = require('../../public/js/fos_js_routes.json');
+import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
+
+Routing.setRoutingData(routes);
 import WOW from 'wow.js';
+
 $(document).ready(function () {
     new WOW().init();
     $('[data-toggle="popover"]').popover();
@@ -27,4 +32,24 @@ $(document).ready(function () {
             ;
         });
     })
+
+    $('.contact-send').on('click', function (e) {
+        e.preventDefault();
+        console.log($(this).parent('form').serialize());
+        $.ajax({
+            url: Routing.generate('homepage'),
+            method: "POST",
+            data: $(this).parent('form').serialize()
+        }).always(function (data) {
+            console.log(data);
+            $('form').html(data.view);
+        })
+    })
+
+    $('.custom-switch input').on('click', function (e) {
+        $.post(Routing.generate('contact_switch_update', {id: $(this).data('entity')}), {
+            fieldname: $(this).data('fieldname'),
+            value: $(this).prop('checked')
+        });
+    });
 });

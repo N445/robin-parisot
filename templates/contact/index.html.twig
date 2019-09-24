@@ -57,21 +57,3 @@
         </div>
     </div>
 {% endblock %}
-{% block javascripts %}
-    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-    <script>
-        /**
-         *  a utiliser avec la fonction Twig bs4_switch
-         *  ex: bs4_switch('open',tutu.open ,tutu.id )
-         */
-        $(function () {
-            $('.custom-switch input').on('click', function (e) {
-                $.post(Routing.generate('contact_switch_update', {id: $(this).data('entity')}), {
-                    fieldname: $(this).data('fieldname'),
-                    value: $(this).prop('checked')
-                });
-            })
-        })
-    </script>
-{% endblock %}

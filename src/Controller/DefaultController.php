@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Helper\ContactPopulator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Utils\ToolsProvider;
@@ -13,7 +15,7 @@ use App\Utils\ToolsProvider;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="homepage", methods={"GET","POST"}, options={"expose"=true})
      * @param Request                $request
      * @param EntityManagerInterface $em
      * @return \Symfony\Component\HttpFoundation\Response
@@ -23,8 +25,23 @@ class DefaultController extends AbstractController
         $contact = new Contact();
         $form    = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
+        if ($request->isXmlHttpRequest()) {
+            dump('$request->isXmlHttpRequest()');
+            dump(ContactPopulator::populate($request->request->get('contact')));
+            dump($form->isSubmitted());
+            dump($form->isValid());
+            return new JsonResponse([
+                'success' => true,
+                'view'    => $this->renderView('includes/contact-form.html.twig', [
+                    'form' => $form->createView(),
+                ]),
+            ]);
+        }
+
         if ($form->isSubmitted() && $form->isValid()) {
             // send contact
+            dump('$form->isSubmitted()');
+            dump($contact);
             $em->persist($contact);
             $em->flush();
         }

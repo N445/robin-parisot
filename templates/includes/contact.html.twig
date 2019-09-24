@@ -2,26 +2,7 @@
 <div class="row justify-content-center mb-5 wow slideInUp">
     <div class="col-md-6">
         <div class="shadow p-5">
-            {{ form_start(form) }}
-            <div class="form-row">
-                <div class="col-md-6">
-                    {{ form_row(form.firstname) }}
-                </div>
-                <div class="col-md-6">
-                    {{ form_row(form.lastname) }}
-                </div>
-            </div>
-            <div class="form-group">
-                {{ form_row(form.email) }}
-            </div>
-            <div class="form-group">
-                {{ form_row(form.subject) }}
-            </div>
-            <div class="form-group">
-                {{ form_row(form.message) }}
-            </div>
-            <button type="submit" class="btn btn-gradiant btn-block">Envoyer <i class="far fa-paper-plane"></i></button>
-            {{ form_end(form) }}
+            {% include 'includes/contact-form.html.twig' with {'form':form} %}
         </div>
     </div>
 </div>
