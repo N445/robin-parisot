@@ -10,11 +10,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('homepage') }}">Le site</a>
                     </li>
-                    <li class="nav-item{% if current_group == 'ADMIN'%} active{% endif %}">
+                    <li class="nav-item{% if current_group == 'ADMIN' %} active{% endif %}">
                         <a class="nav-link" href="{{ path('admin') }}">Index</a>
                     </li>
-                    <li class="nav-item{% if current_group == 'CONTACT_GROUP'%} active{% endif %}">
-                        <a class="nav-link" href="{{ path('contact_index') }}">Contact</a>
+                    <li class="nav-item{% if current_group == 'CONTACT_GROUP' %} active{% endif %}">
+                        <a class="nav-link" href="{{ path('contact_index') }}">Contacts</a>
+                    </li>
+                    <li class="nav-item{% if current_group == 'ACTUALITE_GROUP' %} active{% endif %}">
+                        <a class="nav-link" href="{{ path('actualite_index') }}">Actualites</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">

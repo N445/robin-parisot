@@ -1,0 +1,75 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Actualite index{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Actualite index</h1>
+            <div class="add_new mb-3">
+                <a class="btn btn-success" href="{{ path('actualite_new') }}">Ajouter</a>
+            </div>
+            <div class="table-responsive-sm">
+                <table class="table table-hover table-sm">
+                    <thead>
+                    <tr>
+                                                    <th>Title</th>
+                                                    <th>Resume</th>
+                                                    <th>Content</th>
+                                                    <th>Created_at</th>
+                                                    <th>Is_active</th>
+                                                <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for actualite in actualites %}
+                    <tr>
+                                                    <td>{{ actualite.title }}</td>
+                                                    <td>{{ actualite.resume }}</td>
+                                                    <td>{{ actualite.content }}</td>
+                                                    <td>{{ actualite.createdAt ? actualite.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                                    <td>{{ actualite.isActive ? 'Yes' : 'No' }}</td>
+                                                <td>
+                            <a class="btn btn-info btn-sm"
+                               href="{{ path('actualite_show', {'id': actualite.id}) }}">
+                                Voir
+                            </a>
+                            <a class="btn btn-info btn-sm"
+                               href="{{ path('actualite_edit', {'id': actualite.id}) }}">
+                                Modifier
+                            </a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6">Aucun résultats.</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="add_new mt-3">
+                <a class="btn btn-success" href="{{ path('actualite_new') }}">Ajouter</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+<script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+<script>
+    /**
+     *  a utiliser avec la fonction Twig bs4_switch
+     *  ex: bs4_switch('open',tutu.open ,tutu.id )
+     */
+    $(function () {
+        $('.custom-switch input').on('click', function (e) {
+            $.post(Routing.generate('actualite_switch_update', {id: $(this).data('entity')}), {
+                fieldname: $(this).data('fieldname'),
+                value: $(this).prop('checked')
+            });
+        })
+    })
+</script>
+{% endblock %}

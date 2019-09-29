@@ -27,7 +27,9 @@
         "animate.css": "^3.7.2",
         "bootstrap": "^4.3.1",
         "jquery": "^3.4.1",
+        "noty": "^3.2.0-beta",
         "popper.js": "^1.15.0",
+        "select2": "^4.0.10",
         "wow.js": "^1.2.2"
     }
 }

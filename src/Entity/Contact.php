@@ -23,8 +23,8 @@ class Contact
      * @Assert\Length(
      *      min = 3,
      *      max = 20,
-     *      minMessage = "Your first name must be at least {{ limit }} characters long",
-     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     *      minMessage = "Votre prénom doit comporter au moins {{ limit }} caractères",
+     *      maxMessage = "Votre prénom ne peut pas dépasser {{ limit }} caractères"
      * )
      */
     private $firstname;
@@ -35,8 +35,8 @@ class Contact
      * @Assert\Length(
      *      min = 3,
      *      max = 20,
-     *      minMessage = "Your first name must be at least {{ limit }} characters long",
-     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     *      minMessage = "Votre nom doit comporter au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom ne peut pas dépasser {{ limit }} caractères"
      * )
      */
     private $lastname;
@@ -47,8 +47,8 @@ class Contact
      * @Assert\Length(
      *      min = 4,
      *      max = 100,
-     *      minMessage = "Your first name must be at least {{ limit }} characters long",
-     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     *      minMessage = "Votre email doit comporter au moins {{ limit }} caractères",
+     *      maxMessage = "Votre email ne peut pas dépasser {{ limit }} caractères"
      * )
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email.",
@@ -63,8 +63,8 @@ class Contact
      * @Assert\Length(
      *      min = 10,
      *      max = 150,
-     *      minMessage = "Your first name must be at least {{ limit }} characters long",
-     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     *      minMessage = "L'objet doit comporter au moins {{ limit }} caractères",
+     *      maxMessage = "L'objet ne peut pas dépasser {{ limit }} caractères"
      * )
      */
     private $subject;

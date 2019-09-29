@@ -6,9 +6,22 @@ import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/pu
 
 Routing.setRoutingData(routes);
 import WOW from 'wow.js';
+import Noty from 'noty';
+
+require('select2/dist/js/select2.full.min');
 
 $(document).ready(function () {
     new WOW().init();
+    $('.tags-select2').select2({
+        multiple: true,
+        tags: true,
+        createTag: function(item) {
+            return {
+                id: item.term,
+                text: item.term,
+            };
+        },
+    });
     $('[data-toggle="popover"]').popover();
     $('.main-navbar .nav-item').on('click', function (e) {
         e.preventDefault();
@@ -42,6 +55,22 @@ $(document).ready(function () {
             data: $(this).parent('form').serialize()
         }).always(function (data) {
             console.log(data);
+            if (data.success) {
+                new Noty({
+                    type: 'success',
+                    theme: 'relax',
+                    text: 'Votre message à bien été envoyé',
+                    timeout: 2000
+                }).show();
+            }
+            else {
+                new Noty({
+                    type: 'error',
+                    theme: 'relax',
+                    text: 'Une erreur est survenue',
+                    timeout: 2000
+                }).show();
+            }
             $('form').html(data.view);
         })
     })

@@ -1,0 +1,53 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Actualite{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Actualite</h1>
+            <div class="top_btns mb-3">
+                <a class="btn btn-secondary" href="{{ path('actualite_index') }}">
+                    Retour
+                </a>
+            </div>
+            <div class="table-responsive-sm">
+                <table class="table table-hover table-sm">
+                    <tbody>
+                                            <tr>
+                            <th>Title</th>
+                            <td>{{ actualite.title }}</td>
+                        </tr>
+                                            <tr>
+                            <th>Resume</th>
+                            <td>{{ actualite.resume }}</td>
+                        </tr>
+                                            <tr>
+                            <th>Content</th>
+                            <td>{{ actualite.content }}</td>
+                        </tr>
+                                            <tr>
+                            <th>Created_at</th>
+                            <td>{{ actualite.createdAt ? actualite.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+                                            <tr>
+                            <th>Is_active</th>
+                            <td>{{ actualite.isActive ? 'Yes' : 'No' }}</td>
+                        </tr>
+                                        </tbody>
+                </table>
+            </div>
+            <div class="bottom_btns mt-3">
+                <a class="btn btn-secondary" href="{{ path('actualite_index') }}">
+                    Retour
+                </a>
+                <a class="btn btn-success"
+                   href="{{ path('actualite_edit', {'id': actualite.id}) }}">
+                    Modifier
+                </a>
+            </div>
+            {{ include('actualite/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}
