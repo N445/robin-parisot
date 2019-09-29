@@ -1,21 +1,25 @@
 security:
-    encoders:
-        App\Entity\User:
-            algorithm: auto
-
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        # used to reload user from session & other features (e.g. switch_user)
-        app_user_provider:
-            entity:
-                class: App\Entity\User
-                property: username
+        in_memory:
+            memory:
+                users:
+                    robin:
+                        password: $2y$12$DiAP.hC30gG3HEOB5NvwNOCEARO.qsTP8yNtYHDdfEJ5OYxKrQAA2
+                        roles: 'ROLE_ADMIN'
+
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            anonymous: ~
+            http_basic: ~
             guard:
                 authenticators:
                     - App\Security\AppCustomAuthenticator
