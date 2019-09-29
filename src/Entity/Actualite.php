@@ -52,7 +52,7 @@ class Actualite
     private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Actualite\Tags", inversedBy="actualites")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Actualite\Tags", inversedBy="actualites", cascade={"persist"})
      */
     private $tags;
 

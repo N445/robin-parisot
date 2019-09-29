@@ -27,21 +27,34 @@ class ActualiteType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        dump($this->getExistingTags());
         $builder
             ->add('title')
             ->add('resume')
             ->add('content')
             ->add('is_active')
             ->add('image', ImageType::class)
-            ->add('tags_select2', ChoiceType::class, [
-                'choices'      => $this->getExistingTags(),
+            ->add('tags', EntityType::class, [
+                'class'        => Tags::class,
+                'choice_label' => 'name',
+//                'choices'      => $this->getExistingTags(),
                 'attr'         => [
                     'class' => 'tags-select2',
                 ],
-                'mapped'       => false,
+                'multiple'     => true,
+                'required'     => false,
             ])
+//            ->add('tags_select2', ChoiceType::class, [
+//                'choices'  => $this->getExistingTags(),
+//                'attr'     => [
+//                    'class' => 'tags-select2',
+//                ],
+//                'multiple' => true,
+//                'mapped'   => false,
+//                'required' => false,
+//            ])
         ;
+        $builder->get('tags')->resetViewTransformers();
+//        $builder->get('tags_select2')->resetViewTransformers();
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -53,8 +66,10 @@ class ActualiteType extends AbstractType
 
     public function getExistingTags()
     {
-        return array_flip(array_map(function (Tags $tags) {
-            return $tags->getName();
-        }, $this->tagsRepository->findAll()));
+        $data = [];
+        foreach ($this->tagsRepository->findAll() as $tags) {
+            $data[$tags->getName()] = $tags->getName();
+        }
+        return $data;
     }
 }

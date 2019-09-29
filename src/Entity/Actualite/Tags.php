@@ -29,8 +29,9 @@ class Tags
      */
     private $actualites;
 
-    public function __construct()
+    public function __construct($name = null)
     {
+        $this->name       = $name;
         $this->actualites = new ArrayCollection();
     }
 

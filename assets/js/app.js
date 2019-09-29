@@ -15,12 +15,6 @@ $(document).ready(function () {
     $('.tags-select2').select2({
         multiple: true,
         tags: true,
-        createTag: function(item) {
-            return {
-                id: item.term,
-                text: item.term,
-            };
-        },
     });
     $('[data-toggle="popover"]').popover();
     $('.main-navbar .nav-item').on('click', function (e) {

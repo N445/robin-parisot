@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Actualite;
 use App\Form\ActualiteType;
+use App\Repository\Actualite\TagsRepository;
 use App\Repository\ActualiteRepository;
+use App\Service\TagsPopulator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,12 +23,23 @@ class ActualiteController extends AbstractController
     const CURRENT_GROUP = 'ACTUALITE_GROUP';
 
     /**
+     * @var TagsRepository
+     */
+    private $tagsRepository;
+
+    /**
+     * @var TagsPopulator
+     */
+    private $tagsPopulator;
+
+    /**
      * SkillController constructor.
      * @param EntityManagerInterface $em
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, TagsPopulator $tagsPopulator)
     {
-        $this->em = $em;
+        $this->em            = $em;
+        $this->tagsPopulator = $tagsPopulator;
     }
 
     /**
@@ -52,12 +65,12 @@ class ActualiteController extends AbstractController
         $actualite = new Actualite();
         $form      = $this->createForm(ActualiteType::class, $actualite);
         $form->handleRequest($request);
-        $this->createTags($form);
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $this->em->persist($actualite);
-//            $this->em->flush();
-//            return $this->redirectToRoute('actualite_index');
-//        }
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->tagsPopulator->populate($actualite, $form->getData()->getTags());
+            $this->em->persist($actualite);
+            $this->em->flush();
+            return $this->redirectToRoute('actualite_index');
+        }
         return $this->render('actualite/new.html.twig', [
             'actualite'     => $actualite,
             'form'          => $form->createView(),
@@ -87,6 +100,7 @@ class ActualiteController extends AbstractController
         $form = $this->createForm(ActualiteType::class, $actualite);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->tagsPopulator->populate($actualite, $form->getData()->getTags());
             $this->em->flush();
             return $this->redirectToRoute('actualite_index', ['id' => $actualite->getId()]);
         }
@@ -129,6 +143,8 @@ class ActualiteController extends AbstractController
 
     private function createTags(Form $form)
     {
-        dump($form->get("tags_select2")->getData());
+        $addTags = $form->get('tags_select2')->getData();
+        dump($addTags, $this->tagsRepository->getTagsNames());
+
     }
 }
