@@ -22,3 +22,15 @@ liip_imagine:
             filters:
                 relative_resize:
                     widen: 100
+        admin_thumbnail_small:
+            filters:
+                relative_resize:
+                    widen: 100
+        admin_thumbnail_medium:
+            filters:
+                relative_resize:
+                    widen: 250
+        admin_thumbnail_large:
+            filters:
+                relative_resize:
+                    widen: 350

@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Actualite\ImageRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Image extends ImageCompressed implements FileEntityInterface
 {

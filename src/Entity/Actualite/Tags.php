@@ -29,22 +29,44 @@ class Tags
      */
     private $actualites;
 
+    /**
+     * Tags constructor.
+     * @param null $name
+     */
     public function __construct($name = null)
     {
         $this->name       = $name;
         $this->actualites = new ArrayCollection();
     }
 
+    /**
+     * @return null|string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return Tags
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -60,6 +82,10 @@ class Tags
         return $this->actualites;
     }
 
+    /**
+     * @param Actualite $actualite
+     * @return Tags
+     */
     public function addActualite(Actualite $actualite): self
     {
         if (!$this->actualites->contains($actualite)) {
@@ -70,6 +96,10 @@ class Tags
         return $this;
     }
 
+    /**
+     * @param Actualite $actualite
+     * @return Tags
+     */
     public function removeActualite(Actualite $actualite): self
     {
         if ($this->actualites->contains($actualite)) {

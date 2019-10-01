@@ -6,6 +6,8 @@
 @import "~noty/src/themes/mint";
 @import "~noty/src/themes/relax";
 @import "~select2/dist/css/select2.min.css";
+@import "./../modules/redactor3/redactor.min.css";
+@import "./../modules/redactor3/plugins/inlinestyle.min.css";
 
 .btn-gradiant {
   @include button-gradiant-variant($custom-primary, $custom-secondary, $custom-primary);

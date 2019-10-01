@@ -21,7 +21,7 @@ class Actualite
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=60)
      */
     private $title;
 

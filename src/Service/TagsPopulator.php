@@ -31,8 +31,9 @@ class TagsPopulator
     public function populate(Actualite &$actualite, $tags)
     {
         $this->setTagsEntity($tags);
+
         foreach ($actualite->getTags() as $tag) {
-            $actualite->;
+            $actualite->removeTag($tag);
         }
         foreach ($this->tagsEntities as $tag) {
             $actualite->addTag($tag);
@@ -42,7 +43,8 @@ class TagsPopulator
     private function setTagsEntity($tags)
     {
         foreach ($tags as $tag) {
-            $this->tagsEntities[] = (int)$tag > 0 ? $this->existingTags[(int)$tag] : $this->createTagEntity($tag);
+            $this->tagsEntities[] = in_array($tag, $this->existingTags) ? $this->existingTags[$tag] : $this->createTagEntity($tag);
+//            $this->tagsEntities[] = (int)$tag > 0 ? $this->existingTags[(int)$tag] : $this->createTagEntity($tag);
         }
     }
 

@@ -7,6 +7,7 @@ use App\Form\ActualiteType;
 use App\Repository\Actualite\TagsRepository;
 use App\Repository\ActualiteRepository;
 use App\Service\TagsPopulator;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,13 +34,21 @@ class ActualiteController extends AbstractController
     private $tagsPopulator;
 
     /**
+     * @var ActualiteRepository
+     */
+    private $actualiteRepository;
+
+    /**
      * SkillController constructor.
      * @param EntityManagerInterface $em
+     * @param ActualiteRepository    $actualiteRepository
+     * @param TagsPopulator          $tagsPopulator
      */
-    public function __construct(EntityManagerInterface $em, TagsPopulator $tagsPopulator)
+    public function __construct(EntityManagerInterface $em, ActualiteRepository $actualiteRepository, TagsPopulator $tagsPopulator)
     {
-        $this->em            = $em;
-        $this->tagsPopulator = $tagsPopulator;
+        $this->em                  = $em;
+        $this->tagsPopulator       = $tagsPopulator;
+        $this->actualiteRepository = $actualiteRepository;
     }
 
     /**
@@ -50,7 +59,7 @@ class ActualiteController extends AbstractController
     public function index(ActualiteRepository $actualiteRepository): Response
     {
         return $this->render('actualite/index.html.twig', [
-            'actualites'    => $actualiteRepository->findAll(),
+            'actualites'    => $actualiteRepository->findBy([], ['created_at' => 'DESC']),
             'current_group' => self::CURRENT_GROUP,
         ]);
     }
@@ -66,7 +75,8 @@ class ActualiteController extends AbstractController
         $form      = $this->createForm(ActualiteType::class, $actualite);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->tagsPopulator->populate($actualite, $form->getData()->getTags());
+            $this->tagsPopulator->populate($actualite, $form->get('tags_select2')->getData());
+//            $this->tagsPopulator->populate($actualite, $form->getData()->getTags());
             $this->em->persist($actualite);
             $this->em->flush();
             return $this->redirectToRoute('actualite_index');
@@ -93,14 +103,18 @@ class ActualiteController extends AbstractController
     /**
      * @Route("/{id}/edit", name="actualite_edit", methods={"GET","POST"})
      * @param Request $request
+     * @param         $id
      * @return Response
+     * @throws NonUniqueResultException
      */
-    public function edit(Request $request, Actualite $actualite): Response
+    public function edit(Request $request, $id): Response
     {
-        $form = $this->createForm(ActualiteType::class, $actualite);
+        $actualite = $this->actualiteRepository->getActualityById($id);
+        $form      = $this->createForm(ActualiteType::class, $actualite);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->tagsPopulator->populate($actualite, $form->getData()->getTags());
+            $this->tagsPopulator->populate($actualite, $form->get('tags_select2')->getData());
+//            $this->tagsPopulator->populate($actualite, $form->getData()->getTags());
             $this->em->flush();
             return $this->redirectToRoute('actualite_index', ['id' => $actualite->getId()]);
         }

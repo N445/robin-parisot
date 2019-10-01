@@ -12,7 +12,11 @@ class ImageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('file', FileType::class);
+        $builder->add('file', FileType::class, [
+            'attr' => [
+                'lang' => 'fr',
+            ],
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

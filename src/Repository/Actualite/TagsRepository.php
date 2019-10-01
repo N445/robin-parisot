@@ -19,6 +19,9 @@ class TagsRepository extends ServiceEntityRepository
         parent::__construct($registry, Tags::class);
     }
 
+    /**
+     * @return Tags[]
+     */
     public function getTagsNames()
     {
         $result = $this->createQueryBuilder('t')
@@ -28,7 +31,7 @@ class TagsRepository extends ServiceEntityRepository
 
         $data = [];
         foreach ($result as $tag) {
-            $data[$tag->getId()] = $tag;
+            $data[$tag->getName()] = $tag;
         }
 
         return $data;

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Helper\ContactPopulator;
+use App\Repository\ActualiteRepository;
 use App\Service\Recaptcha;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,18 +24,26 @@ class DefaultController extends AbstractController
     private $em;
 
     /**
+     * @var ActualiteRepository
+     */
+    private $actualiteRepository;
+
+    /**
      * DefaultController constructor.
      * @param EntityManagerInterface $em
+     * @param ActualiteRepository    $actualiteRepository
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, ActualiteRepository $actualiteRepository)
     {
-        $this->em = $em;
+        $this->em                  = $em;
+        $this->actualiteRepository = $actualiteRepository;
     }
 
     /**
      * @Route("/", name="homepage", methods={"GET","POST"}, options={"expose"=true})
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function index(Request $request)
     {
@@ -53,11 +62,12 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('default/index.html.twig', [
-            'toolsFront' => ToolsProvider::getToolsFront(),
-            'toolsBack'  => ToolsProvider::getToolsBack(),
-            'toolsOther' => ToolsProvider::getToolsOther(),
-            'form'       => $form->createView(),
-            'recaptcha'  => Recaptcha::RECAPTCHA_KEY,
+            'toolsFront'  => ToolsProvider::getToolsFront(),
+            'toolsBack'   => ToolsProvider::getToolsBack(),
+            'toolsOther'  => ToolsProvider::getToolsOther(),
+            'form'        => $form->createView(),
+            'recaptcha'   => Recaptcha::RECAPTCHA_KEY,
+            'actualities' => $this->actualiteRepository->getActualitiesWithLimit(),
         ]);
     }
 

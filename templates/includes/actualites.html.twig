@@ -1,0 +1,22 @@
+<h2 class="title text-center">Actualites</h2>
+<div class="row justify-content-center mb-5">
+    {% for actuality in actualities %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ asset(actuality.image.webpath) }}" class="card-img-top" alt="{{ actuality.title }}">
+                <div class="card-body shadow">
+                    <div class="tags position-absolute" style="top: 2px;left: 2px;">
+                        {% for tag in actuality.tags %}
+                            <span class="badge badge-info">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    <h5 class="card-title">{{ actuality.title }}</h5>
+                    <p class="card-text">
+                        {{ actuality.resume|raw }}
+                    </p>
+                    <a href="#" class="btn bg-gradiant">Voir</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
