@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{%- block title -%}{{ actualite.title }}{%- endblock -%}
+
+{% block body %}
+    <div class="container">
+        <div class="bandeau">
+            <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset(actualite.image.webPath) }}" style="height: 300px"></div>
+            {#<img src="" alt="{{ actualite.title }}" class="img-fluid">#}
+            <div class="content">
+                <div class="container">
+                    <h1 class="title">{{ actualite.title }}</h1>
+                </div>
+            </div>
+            <a href="{{ path('homepage') }}" class="btn btn-gradiant my-3"><i class="fa fa-angle-double-left"></i> Revenir</a>
+            <div class="actualite-content" style="height: 1000px">
+                {{ actualite.content|raw }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

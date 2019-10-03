@@ -16,15 +16,32 @@ const routes = require('../../public/js/fos_js_routes.json');
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
 import bsCustomFileInput from 'bs-custom-file-input';
 
+var moment = require('moment');
+require('moment/locale/fr');
+moment.locale('fr');
+
 Routing.setRoutingData(routes);
 import WOW from 'wow.js';
 import Noty from 'noty';
-
+require('jquery-parallax.js');
 require('select2/dist/js/select2.full.min');
 
 $(document).ready(function () {
+
+    $.each($('.actualite-date'), function (key, actualiteDate) {
+        var data = $(actualiteDate).data('data');
+        // $(actuality).find('.actualite-date').html(moment(data, "DD-MM-YYYY").format("dddd Do MMMM YYYY"));
+        $(actualiteDate).html(moment(data, "DD-MM-YYYY").fromNow());
+    })
+
     bsCustomFileInput.init();
-    new WOW().init();
+    var wow = new WOW(
+        {
+            mobile: false,       // trigger animations on mobile devices (default is true)
+            resetAnimation: true,     // reset animation on end (default is true)
+        }
+    );
+    wow.init();
     $('.tags-select2').select2({
         multiple: true,
         tags: true,

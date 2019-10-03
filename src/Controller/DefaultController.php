@@ -8,10 +8,12 @@ use App\Helper\ContactPopulator;
 use App\Repository\ActualiteRepository;
 use App\Service\Recaptcha;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Utils\ToolsProvider;
 
@@ -42,8 +44,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="homepage", methods={"GET","POST"}, options={"expose"=true})
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @return Response
      */
     public function index(Request $request)
     {
@@ -68,6 +69,32 @@ class DefaultController extends AbstractController
             'form'        => $form->createView(),
             'recaptcha'   => Recaptcha::RECAPTCHA_KEY,
             'actualities' => $this->actualiteRepository->getActualitiesWithLimit(),
+        ]);
+    }
+
+    /**
+     * @Route("/actualites", name="ACTUALITES",methods={"GET"})
+     * @param $id
+     * @return Response
+     * @throws NonUniqueResultException
+     */
+    public function voirActualites()
+    {
+        return $this->render('default/actualites.html.twig', [
+            'actualities' => $this->actualiteRepository->getActualities(),
+        ]);
+    }
+
+    /**
+     * @Route("/actualite/{id}/{slug}", name="VOIR_ACTUALITE",methods={"GET"})
+     * @param $id
+     * @return Response
+     * @throws NonUniqueResultException
+     */
+    public function voirActualite($id)
+    {
+        return $this->render('default/actualite.html.twig', [
+            'actualite' => $this->actualiteRepository->getActualityById($id),
         ]);
     }
 

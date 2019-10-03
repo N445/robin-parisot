@@ -26,17 +26,26 @@ class ActualiteRepository extends ServiceEntityRepository
 
     /**
      * @param $id
+     * @return Actualite[]
+     */
+    public function getActualities()
+    {
+        return $this->getQuery()
+                    ->getQuery()
+                    ->getResult()
+            ;
+    }
+
+    /**
+     * @param $id
      * @return Actualite|null
      * @throws NonUniqueResultException
      */
     public function getActualityById($id)
     {
-        return $this->createQueryBuilder('a')
-                    ->addSelect('image', 'tags')
+        return $this->getQuery()
                     ->andWhere('a.id = :id')
                     ->setParameter('id', $id)
-                    ->leftJoin('a.image', 'image')
-                    ->leftJoin('a.tags', 'tags')
                     ->getQuery()
                     ->getOneOrNullResult()
             ;
@@ -58,14 +67,21 @@ class ActualiteRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getResult());
 
-        return $this->createQueryBuilder('a')
-                    ->addSelect('image', 'tags')
-                    ->leftJoin('a.image', 'image')
-                    ->leftJoin('a.tags', 'tags')
+        return $this->getQuery()
                     ->where('a.id IN (:ids)')
                     ->setParameter('ids', $ids)
                     ->getQuery()
                     ->getResult()
+            ;
+    }
+
+    private function getQuery()
+    {
+        return $this->createQueryBuilder('a')
+                    ->addSelect('image', 'tags')
+                    ->leftJoin('a.image', 'image')
+                    ->leftJoin('a.tags', 'tags')
+                    ->orderBy('a.created_at', 'DESC')
             ;
     }
 
