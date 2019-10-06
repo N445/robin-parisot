@@ -8,15 +8,25 @@ liip_imagine:
                 thumbnail:
                     size: [1920, 500]
                     mode: outbound
-        bandeau_small:
+        bandeau_sm:
             filters:
                 thumbnail:
-                    size: [320, 500]
+                    size: [576, 500]
                     mode: outbound
-        bandeau_medium:
+        bandeau_md:
             filters:
                 thumbnail:
-                    size: [640, 500]
+                    size: [768, 500]
+                    mode: outbound
+        bandeau_lg:
+            filters:
+                thumbnail:
+                    size: [992, 500]
+                    mode: outbound
+        bandeau_vlg:
+            filters:
+                thumbnail:
+                    size: [1200, 500]
                     mode: outbound
         tool:
             filters:
