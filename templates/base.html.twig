@@ -14,5 +14,15 @@
 {% include 'includes/footer.html.twig' %}
 {{ encore_entry_script_tags('js/app') }}
 {% block javascripts %}{% endblock %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102245223-3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-102245223-3');
+</script>
+
 </body>
 </html>
