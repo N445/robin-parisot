@@ -572,6 +572,9 @@
     "symfony/yaml": {
         "version": "v4.3.4"
     },
+    "twig/markdown-extra": {
+        "version": "v3.0.1"
+    },
     "twig/twig": {
         "version": "v2.11.3"
     },

@@ -22,9 +22,14 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
-        
+
     App\Maker\MakeBs4Crud:
         arguments: ["@maker.doctrine_helper"]
         tags: ['maker.command']
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    twig.extension.markdown:
+        class: Twig\Extra\Markdown\MarkdownExtension
+        tags:
+            - { name: 'twig.extension' }

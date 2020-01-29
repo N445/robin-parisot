@@ -10,6 +10,29 @@
         {# BANDEAU #}
         {% include 'includes/bandeau.html.twig' %}
         <div class="container">
+            <div class="row row-cols-2">
+                <div class="col">
+                    composer.json
+                    <pre>
+                    <code>
+{% include 'includes/conf-files/composer.json.twig' %}
+
+                    </code>
+                </pre>
+                </div>
+                <div class="col">
+                    package.json
+                    <pre>
+                    <code>
+{% include 'includes/conf-files/package.json.twig' %}
+                    </code>
+                </pre>
+                </div>
+                <div class="col">
+
+{#                    {% include 'includes/conf-files/README.md.twig'|markdown_to_html %}#}
+                </div>
+            </div>
             {# OUTILS FRONT #}
             <div id="tools-front">
                 {% include 'includes/tools/front.html.twig' %}
@@ -48,5 +71,4 @@
             });
         });
     </script>
-
 {% endblock %}

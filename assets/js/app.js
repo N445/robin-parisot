@@ -1,20 +1,12 @@
+// this loads jquery, but does *not* set a global $ or jQuery variable
+const $ = require('jquery');
 require('bootstrap');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
-require('./../modules/redactor3/redactor.min');
-require('./../modules/redactor3/plugins/alignment.min');
-require('./../modules/redactor3/plugins/counter.min');
-require('./../modules/redactor3/plugins/fontcolor.min');
-require('./../modules/redactor3/plugins/fontfamily.min');
-require('./../modules/redactor3/plugins/fontsize.min');
-require('./../modules/redactor3/plugins/inlinestyle.min');
-require('./../modules/redactor3/plugins/properties.min');
-require('./../modules/redactor3/plugins/specialchars.min');
-require('./../modules/redactor3/plugins/table.min');
-require('./../modules/redactor3/plugins/video.min');
+
 const routes = require('../../public/js/fos_js_routes.json');
+const highlight = require('highlight.js');
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
-import bsCustomFileInput from 'bs-custom-file-input';
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -24,9 +16,11 @@ Routing.setRoutingData(routes);
 import WOW from 'wow.js';
 import Noty from 'noty';
 require('jquery-parallax.js');
-require('select2/dist/js/select2.full.min');
 
 $(document).ready(function () {
+
+    $('[data-toggle="popover"]').popover();
+    highlight.initHighlightingOnLoad();
 
     $.each($('.actualite-date'), function (key, actualiteDate) {
         var data = $(actualiteDate).data('data');
@@ -34,7 +28,6 @@ $(document).ready(function () {
         $(actualiteDate).html(moment(data, "DD-MM-YYYY").fromNow());
     })
 
-    bsCustomFileInput.init();
     var wow = new WOW(
         {
             mobile: false,       // trigger animations on mobile devices (default is true)
@@ -42,18 +35,8 @@ $(document).ready(function () {
         }
     );
     wow.init();
-    $('.tags-select2').select2({
-        multiple: true,
-        tags: true,
-    });
-    $R('.redactor', {
-        plugins: ['alignment', 'counter', 'fontcolor', 'fontfamily', 'fontsize', 'inlinestyle', 'properties', 'specialchars', 'table', 'video']
-    });
 
-    $('.tags-select2').val($('.tags-select2').data('selected-choices'));
-    $('.tags-select2').trigger('change');
 
-    $('[data-toggle="popover"]').popover();
     $('.main-navbar .nav-item').on('click', function (e) {
         e.preventDefault();
         var $this = $(this);
@@ -105,11 +88,4 @@ $(document).ready(function () {
             $('form').html(data.view);
         })
     })
-
-    $('.custom-switch input').on('click', function (e) {
-        $.post(Routing.generate('contact_switch_update', {id: $(this).data('entity')}), {
-            fieldname: $(this).data('fieldname'),
-            value: $(this).prop('checked')
-        });
-    });
 });

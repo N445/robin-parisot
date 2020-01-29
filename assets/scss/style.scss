@@ -8,6 +8,7 @@
 @import "~select2/dist/css/select2.min.css";
 @import "./../modules/redactor3/redactor.min.css";
 @import "./../modules/redactor3/plugins/inlinestyle.min.css";
+@import "~highlight.js/scss/darcula";
 
 .btn-gradiant {
   @include button-gradiant-variant($custom-primary, $custom-secondary, $custom-primary);

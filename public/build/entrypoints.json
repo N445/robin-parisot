@@ -3,21 +3,30 @@
     "js/app": {
       "js": [
         "/build/runtime.57106796.js",
-        "/build/0.e71584f9.js",
-        "/build/js/app.9d6be476.js"
+        "/build/0.3120bcce.js",
+        "/build/1.47d3a7f9.js",
+        "/build/js/app.24f21c1b.js"
       ],
       "css": [
-        "/build/0.0785ec08.css"
+        "/build/1.0785ec08.css"
+      ]
+    },
+    "js/admin": {
+      "js": [
+        "/build/runtime.57106796.js",
+        "/build/0.3120bcce.js",
+        "/build/2.8cc90bfe.js",
+        "/build/js/admin.cb7d5434.js"
       ]
     },
     "css/style": {
       "js": [
         "/build/runtime.57106796.js",
-        "/build/1.6cdafae8.js"
+        "/build/3.05fac6cf.js"
       ],
       "css": [
-        "/build/1.4e97b16f.css",
-        "/build/css/style.581febea.css"
+        "/build/3.4e97b16f.css",
+        "/build/css/style.6d759621.css"
       ]
     }
   }
