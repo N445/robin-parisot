@@ -5,13 +5,11 @@
 {% block body %}
     <main class="homepage">
         <div id="top"></div>
-        {# TOP NAV #}
-        {% include 'includes/navigation.html.twig' %}
         {# BANDEAU #}
         {% include 'includes/bandeau.html.twig' %}
         <div class="container">
-            <div class="row row-cols-2">
-                <div class="col">
+            <div class="row">
+                <div class="col-md-6">
                     composer.json
                     <pre>
                     <code>
@@ -20,7 +18,7 @@
                     </code>
                 </pre>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     package.json
                     <pre>
                     <code>
@@ -29,8 +27,15 @@
                 </pre>
                 </div>
                 <div class="col">
-
-{#                    {% include 'includes/conf-files/README.md.twig'|markdown_to_html %}#}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <pre>
+                        <code>
+                            {#{% include 'includes/conf-files/README.md.twig'|markdown_to_html %}#}
+                        </code>
+                    </pre>
                 </div>
             </div>
             {# OUTILS CONTACT #}
