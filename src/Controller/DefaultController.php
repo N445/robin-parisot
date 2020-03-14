@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Helper\ContactPopulator;
-use App\Repository\ActualiteRepository;
 use App\Service\Recaptcha;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
@@ -15,7 +14,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Utils\ToolsProvider;
 
 class DefaultController extends AbstractController
 {
@@ -26,19 +24,12 @@ class DefaultController extends AbstractController
     private $em;
 
     /**
-     * @var ActualiteRepository
-     */
-    private $actualiteRepository;
-
-    /**
      * DefaultController constructor.
      * @param EntityManagerInterface $em
-     * @param ActualiteRepository    $actualiteRepository
      */
-    public function __construct(EntityManagerInterface $em, ActualiteRepository $actualiteRepository)
+    public function __construct(EntityManagerInterface $em)
     {
         $this->em                  = $em;
-        $this->actualiteRepository = $actualiteRepository;
     }
 
     /**
@@ -63,12 +54,8 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('default/index.html.twig', [
-            'toolsFront'  => ToolsProvider::getToolsFront(),
-            'toolsBack'   => ToolsProvider::getToolsBack(),
-            'toolsOther'  => ToolsProvider::getToolsOther(),
             'form'        => $form->createView(),
             'recaptcha'   => Recaptcha::RECAPTCHA_KEY,
-            'actualities' => $this->actualiteRepository->getActualitiesWithLimit(),
         ]);
     }
 
