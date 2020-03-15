@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
-
+    
     /**
      * @var EntityManagerInterface
      */
@@ -30,7 +30,7 @@ class DefaultController extends AbstractController
     {
         $this->em = $em;
     }
-
+    
     /**
      * @Route("/", name="homepage", methods={"GET","POST"}, options={"expose"=true})
      * @param Request $request
@@ -39,27 +39,27 @@ class DefaultController extends AbstractController
     public function index(Request $request)
     {
         $contact = new Contact();
-        $form    = $this->createForm(ContactType::class, $contact);
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
         if ($request->isXmlHttpRequest()) {
-
+            
             return $this->contactSend($form, $request);
             return new JsonResponse([
                 'success' => true,
-                'view'    => $this->renderView('includes/contact-form.html.twig', [
+                'view' => $this->renderView('includes/contact-form.html.twig', [
                     'form' => $form->createView(),
                 ]),
             ]);
         }
-
+        
         return $this->render('default/index.html.twig', [
-            'form'      => $form->createView(),
+            'form' => $form->createView(),
             'recaptcha' => Recaptcha::RECAPTCHA_KEY,
         ]);
     }
-
+    
     /**
-     * @param Form    $form
+     * @param Form $form
      * @param Request $request
      * @return JsonResponse
      */
@@ -70,13 +70,13 @@ class DefaultController extends AbstractController
             $this->em->persist(ContactPopulator::populate($request->request->get('contact')));
             $this->em->flush();
             $contact = new Contact();
-            $form    = $this->createForm(ContactType::class, $contact);
+            $form = $this->createForm(ContactType::class, $contact);
             $success = true;
         }
-
+        
         return new JsonResponse([
             'success' => $success,
-            'view'    => $this->renderView('includes/contact-form.html.twig', [
+            'view' => $this->renderView('includes/contact-form.html.twig', [
                 'form' => $form->createView(),
             ]),
         ]);

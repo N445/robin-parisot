@@ -1,7 +1,0 @@
-{% import 'macro/tool-card.html.twig' as toolMacro %}
-<h2 class="title text-center">Outils frontend</h2>
-<div class="row justify-content-center">
-    {% for i,toolFront in toolsFront %}
-        {{ toolMacro.toolCard(toolFront,i) }}
-    {% endfor %}
-</div>

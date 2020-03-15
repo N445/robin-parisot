@@ -3,21 +3,19 @@
 {% block title %}Robin Parisot - Développeur WEB{% endblock %}
 
 {% block body %}
-    <main class="homepage my-5">
-        {#        <div id="top"></div>#}
-        {#        #}{# TOP NAV #}
-        {#        {% include 'includes/navigation.html.twig' %}#}
-        {#        #}{# BANDEAU #}
-        {#        {% include 'includes/bandeau.html.twig' %}#}
+    <main class="homepage">
+        <div id="top"></div>
+        {# BANDEAU #}
+        {% include 'includes/bandeau.html.twig' %}
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center my-5">
                 <div class="col-md-6">
-                    <div class="shadow p-5 mb-5">
+                    <div class="shadow p-5">
                         {% include 'includes/conf-files/readme.html.twig' %}
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row align-items-center my-5">
                 <div class="col-md-6">
                     {% include 'includes/conf-files/composer.html.twig' %}
                 </div>
@@ -25,28 +23,8 @@
                     {% include 'includes/conf-files/package.html.twig' %}
                 </div>
             </div>
-            {#            #}{# OUTILS FRONT #}
-            {#            <div id="tools-front">#}
-            {#                {% include 'includes/tools/front.html.twig' %}#}
-            {#            </div>#}
-            {#            #}{# OUTILS BACK #}
-            {#            <div id="tools-back">#}
-            {#                {% include 'includes/tools/back.html.twig' %}#}
-            {#            </div>#}
-            {#            #}{# OUTILS DIVERS #}
-            {#            <div id="tools-other">#}
-            {#                {% include 'includes/tools/other.html.twig' %}#}
-            {#            </div>#}
-            {#            #}{# ACTUALITES #}
-            {#            <div id="actualites">#}
-            {#                {% include 'includes/actualites.html.twig' %}#}
-            {#            </div>#}
-            {# PORTFOLIO #}
-            {#<div id="portfolio">
-                {% include 'includes/portfolio.html.twig' %}
-            </div>#}
             {# OUTILS CONTACT #}
-            <div id="contact">
+            <div id="contact my-5">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
                         {% include 'includes/contact.html.twig' %}
