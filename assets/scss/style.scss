@@ -2,6 +2,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~animate.css/animate.min.css";
 @import "imports/mixins";
+@import "imports/responsive-helper";
 @import "~noty/src/noty";
 @import "~noty/src/themes/mint";
 @import "~noty/src/themes/relax";
@@ -24,40 +25,6 @@
 }
 
 .homepage {
-  .tool {
-    transition: .1s ease-in-out all;
-    position: relative;
-    height: 100%;
-    .link {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-    }
-    .versions {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-    }
-    .level {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      .bar {
-        background-color: darken($custom-secondary, 30);
-        color: color-yiq(darken($custom-secondary, 30));
-        font-size: 13px;
-      }
-    }
-    &:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: $box-shadow-lg;
-      a {
-        text-decoration: none;
-      }
-    }
-  }
-
   .bandeau {
     position: relative;
     &:before {
@@ -80,13 +47,31 @@
       align-items: center;
       z-index: 200;
       .content {
-        text-align: center;
+        text-align:       center;
         background-color: rgba(white, .6);
-        height: 60%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backdrop-filter: blur(5px);
+        height:           60%;
+        display:          flex;
+        align-items:      center;
+        justify-content:  center;
+        backdrop-filter:  blur(5px);
+      }
+    }
+  }
+
+  .globals-info {
+    .links {
+      .link {
+        text-align: center;
+
+        a {
+          font-size: 40px;
+          color:     $custom-primary;
+          @include transition(.1s all ease-in-out);
+
+          &:hover {
+            color: $custom-secondary;
+          }
+        }
       }
     }
   }
