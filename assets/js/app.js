@@ -8,36 +8,26 @@ const routes = require('../../public/js/fos_js_routes.json');
 const highlight = require('highlight.js');
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
 
-var moment = require('moment');
-require('moment/locale/fr');
-moment.locale('fr');
-
+// var moment = require('moment');
+// require('moment/locale/fr');
+// moment.locale('fr');
 Routing.setRoutingData(routes);
-import WOW from 'wow.js';
 import Noty from 'noty';
 require('jquery-parallax.js');
 
 $(document).ready(function () {
 
-    $('[data-toggle="popover"]').popover();
+    // $('[data-toggle="popover"]').popover();
     highlight.initHighlightingOnLoad();
 
-    $.each($('.actualite-date'), function (key, actualiteDate) {
-        var data = $(actualiteDate).data('data');
-        // $(actuality).find('.actualite-date').html(moment(data, "DD-MM-YYYY").format("dddd Do MMMM YYYY"));
-        $(actualiteDate).html(moment(data, "DD-MM-YYYY").fromNow());
-    })
-
-    var wow = new WOW(
-        {
-            mobile: false,       // trigger animations on mobile devices (default is true)
-            resetAnimation: true,     // reset animation on end (default is true)
-        }
-    );
-    wow.init();
+    // $.each($('.actualite-date'), function (key, actualiteDate) {
+    //     var data = $(actualiteDate).data('data');
+    //     // $(actuality).find('.actualite-date').html(moment(data, "DD-MM-YYYY").format("dddd Do MMMM YYYY"));
+    //     $(actualiteDate).html(moment(data, "DD-MM-YYYY").fromNow());
+    // })
 
 
-    $('.main-navbar .nav-item').on('click', function (e) {
+   /* $('.main-navbar .nav-item').on('click', function (e) {
         e.preventDefault();
         var $this = $(this);
         $('.navbar-nav .nav-item').removeClass('active');
@@ -58,7 +48,7 @@ $(document).ready(function () {
             }
             ;
         });
-    })
+    })*/
 
     $('body').on('click', '.contact-send', function (e) {
         e.preventDefault();
