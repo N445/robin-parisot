@@ -61,7 +61,7 @@ class Contact
      * @ORM\Column(type="string", length=150)
      * @Assert\NotBlank
      * @Assert\Length(
-     *      min = 10,
+     *      min = 3,
      *      max = 150,
      *      minMessage = "L'objet doit comporter au moins {{ limit }} caractères",
      *      maxMessage = "L'objet ne peut pas dépasser {{ limit }} caractères"

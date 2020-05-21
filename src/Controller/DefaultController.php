@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Helper\ContactPopulator;
+use App\Service\ContactDiscord;
 use App\Service\Recaptcha;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,14 +22,22 @@ class DefaultController extends AbstractController
      * @var EntityManagerInterface
      */
     private $em;
-
+    /**
+     * @var ContactDiscord
+     */
+    private $contactDiscord;
+    
     /**
      * DefaultController constructor.
      * @param EntityManagerInterface $em
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(
+        EntityManagerInterface $em,
+        ContactDiscord $contactDiscord
+    )
     {
         $this->em = $em;
+        $this->contactDiscord = $contactDiscord;
     }
     
     /**
@@ -63,12 +72,17 @@ class DefaultController extends AbstractController
      * @param Request $request
      * @return JsonResponse
      */
-    private function contactSend(Form $form, Request $request)
+    private function contactSend(
+        Form $form,
+        Request $request
+    )
     {
         $success = false;
         if ($form->isValid()) {
-            $this->em->persist(ContactPopulator::populate($request->request->get('contact')));
+            $contact = ContactPopulator::populate($request->request->get('contact'));
+            $this->em->persist($contact);
             $this->em->flush();
+            $this->contactDiscord->send($contact);
             $contact = new Contact();
             $form = $this->createForm(ContactType::class, $contact);
             $success = true;
