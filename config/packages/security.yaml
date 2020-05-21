@@ -4,8 +4,8 @@ security:
         in_memory:
             memory:
                 users:
-                    '%env(string:ADMIN_LOGIN)%':
-                        password: '%env(string:ADMIN_PASSWORD)%'
+                    robin:
+                        password: '$2y$12$0QV4aCvN7m/QWOhnc6SkTOTol9SGG8z4hatOXp1aekP.yrjXc3Uy2'
                         roles: 'ROLE_ADMIN'
 
     encoders:
