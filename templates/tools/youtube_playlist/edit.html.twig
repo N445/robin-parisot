@@ -1,0 +1,17 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Edit YoutubePlaylist{% endblock %}
+
+{% block body %}
+    <h1>Edit YoutubePlaylist</h1>
+
+    {{ include('tools/youtube_playlist/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <p>
+        <a href="{{ path('TOOLS_YOUTUBE_PLAYLIST_INDEX') }}" class="btn btn-primary">
+            Retour au listing
+        </a>
+    </p>
+
+    {{ include('tools/youtube_playlist/_delete_form.html.twig') }}
+{% endblock %}

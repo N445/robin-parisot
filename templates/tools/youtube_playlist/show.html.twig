@@ -1,0 +1,51 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}YoutubePlaylist{% endblock %}
+
+{% block body %}
+    <h1>YoutubePlaylist</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ youtube_playlist.id }}</td>
+        </tr>
+        <tr>
+            <th>Identifier</th>
+            <td>{{ youtube_playlist.identifier }}</td>
+        </tr>
+        <tr>
+            <th>Created_at</th>
+            <td>{{ youtube_playlist.createdAt ? youtube_playlist.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Imported_at</th>
+            <td>{{ youtube_playlist.importedAt ? youtube_playlist.importedAt|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Songs</th>
+            <td>
+                <ul class="list-group">
+                    {% for songs in youtube_playlist.songs %}
+                        <li class="list-group-item">
+                            {{ songs.name }}
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <a href="{{ path('TOOLS_YOUTUBE_PLAYLIST_INDEX') }}" class="btn btn-primary">
+            Retour au listing
+        </a>
+    </p>
+
+{#    <a href="{{ path('TOOLS_YOUTUBE_PLAYLIST_EDIT', {'id': youtube_playlist.id}) }}" class="btn btn-success">edit</a>#}
+
+    {{ include('tools/youtube_playlist/_delete_form.html.twig') }}
+{% endblock %}

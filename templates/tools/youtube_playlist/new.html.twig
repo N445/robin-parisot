@@ -1,0 +1,15 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}New YoutubePlaylist{% endblock %}
+
+{% block body %}
+    <h1>Create new YoutubePlaylist</h1>
+
+    {{ include('tools/youtube_playlist/_form.html.twig') }}
+
+    <p>
+        <a href="{{ path('TOOLS_YOUTUBE_PLAYLIST_INDEX') }}" class="btn btn-primary">
+            Retour au listing
+        </a>
+    </p>
+{% endblock %}
