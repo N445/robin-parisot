@@ -65,7 +65,6 @@ class ApodProvider
         });
 
         $this->dispatcher->dispatch(new ApodEvent($apod), ApodEvent::APOD_NEW);
-        dump('ok');
     }
 
     /**

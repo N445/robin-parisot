@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "812aed557de3ad290006c214ec34d335",
+    "content-hash": "3d5ba64d44ff687da37e1ed2dae3a16a",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2418,16 +2418,16 @@
         },
         {
             "name": "n445/easydiscord",
-            "version": "1.4",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/N445/easydiscord.git",
-                "reference": "e6d7bc4fd34623866d2b8a8a7f035eb97f099096"
+                "reference": "892350c2d656a5f1631296534b21afc5e6e64d24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/N445/easydiscord/zipball/e6d7bc4fd34623866d2b8a8a7f035eb97f099096",
-                "reference": "e6d7bc4fd34623866d2b8a8a7f035eb97f099096",
+                "url": "https://api.github.com/repos/N445/easydiscord/zipball/892350c2d656a5f1631296534b21afc5e6e64d24",
+                "reference": "892350c2d656a5f1631296534b21afc5e6e64d24",
                 "shasum": ""
             },
             "require": {
@@ -2436,7 +2436,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -2460,7 +2460,7 @@
                 "N445",
                 "discord"
             ],
-            "time": "2020-05-26T07:30:25+00:00"
+            "time": "2020-05-26T10:16:51+00:00"
         },
         {
             "name": "ocramius/package-versions",

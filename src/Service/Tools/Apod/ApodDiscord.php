@@ -42,7 +42,7 @@ class ApodDiscord implements EventSubscriberInterface
         $apod = $apodEvent->getApod();
 
         if ($this->apodHelper->isApodExist($apod)) {
-            return;
+//            return;
         }
 
         $message = (new Message())->setUsername('APOD');
@@ -62,7 +62,7 @@ class ApodDiscord implements EventSubscriberInterface
         ;
         $message->setEmbeds([$embed]);
 
-        (new DiscordSender())->init(DiscordKey::ID, DiscordKey::TOKEN)
+        (new DiscordSender())->init(DiscordKey::APOD_ID, DiscordKey::APOD_TOKEN)
                              ->send($message)
         ;
     }
