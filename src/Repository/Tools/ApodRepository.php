@@ -19,6 +19,20 @@ class ApodRepository extends ServiceEntityRepository
         parent::__construct($registry, Apod::class);
     }
 
+    /**
+     * @param string $dateId
+     * @return Apod|null
+     */
+    public function getByDateId(string $dateId)
+    {
+        return $this->createQueryBuilder('a')
+                    ->where('a.dateId = :dateId')
+                    ->setParameter('dateId', $dateId)
+                    ->getQuery()
+                    ->getOneOrNullResult()
+            ;
+    }
+
     // /**
     //  * @return Apod[] Returns an array of Apod objects
     //  */

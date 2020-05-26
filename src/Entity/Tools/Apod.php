@@ -4,6 +4,7 @@ namespace App\Entity\Tools;
 
 use App\Repository\Tools\ApodRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ApodRepository::class)
@@ -51,6 +52,12 @@ class Apod
      * @ORM\Column(type="datetime")
      */
     private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Unique
+     */
+    private $dateId;
 
     public function getId(): ?int
     {
@@ -137,6 +144,18 @@ class Apod
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getDateId(): ?string
+    {
+        return $this->dateId;
+    }
+
+    public function setDateId(string $dateId): self
+    {
+        $this->dateId = $dateId;
 
         return $this;
     }

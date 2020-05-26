@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\Tools\ApodProvider;
+use App\Service\Tools\Apod\ApodProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -26,7 +26,7 @@ class AdminController extends AbstractController
      */
     public function index()
     {
-        dump($this->apodProvider->getApod());
+        $this->apodProvider->getApod();
         return $this->render('admin/index.html.twig', [
             'current_group' => 'ADMIN',
         ]);

@@ -1,4 +1,7 @@
 {
+    "doctrine/sql-formatter": {
+        "version": "1.0.1"
+    },
     "eightpoints/guzzle-bundle": {
         "version": "7.0",
         "recipe": {

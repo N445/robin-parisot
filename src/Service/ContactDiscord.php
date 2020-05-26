@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Contact;
+use App\Helper\DiscordKey;
 use N445\EasyDiscord\Helper\Colors;
 use N445\EasyDiscord\Model\Embed;
 use N445\EasyDiscord\Model\Footer;
@@ -11,9 +12,6 @@ use N445\EasyDiscord\Service\DiscordSender;
 
 class ContactDiscord
 {
-    const ID = '713064446855217154';
-    const TOKEN = 'lxtBE-mVlz9AWiiAk-fFI0RmDYi5Q3qXr3MooSy_BKKZvymmVSyuadUNNI5GNXysesTX';
-    
     public function send(Contact $contact)
     {
         $message = (new Message())->setUsername('Bot du site');
@@ -35,8 +33,8 @@ class ContactDiscord
                 $contact->getMessage()))
             ->setFooter($footer);
         $message->setEmbeds([$embed]);
-        
-        (new DiscordSender())->init(self::ID, self::TOKEN)
+
+        (new DiscordSender())->init(DiscordKey::ID, DiscordKey::TOKEN)
             ->send($message);
         
     }
