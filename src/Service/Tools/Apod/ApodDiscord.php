@@ -42,7 +42,7 @@ class ApodDiscord implements EventSubscriberInterface
         $apod = $apodEvent->getApod();
 
         if ($this->apodHelper->isApodExist($apod)) {
-//            return;
+            return;
         }
 
         $message = (new Message())->setUsername('APOD');
