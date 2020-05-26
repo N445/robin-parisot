@@ -1,7 +1,3 @@
-
-
-//Routing.setRoutingData(routes);
-
 $(document).ready(function () {
 
 

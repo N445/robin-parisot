@@ -32,9 +32,10 @@ module.exports = function (grunt) {
                         'node_modules/bootstrap/dist/js/bootstrap.min.js',
                         'node_modules/bs-custom-file-input/dist/bs-custom-file-input.min.js',
                         'node_modules/noty/lib/noty.min.js',
-                        'node_modules/highlight.js/lib/highlight.js',
                         'node_modules/jquery-parallax.js/parallax.min.js',
                         'vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js',
+                        'node_modules/highlight.js/lib/highlight.js',
+                        'front-lib/highlight.js/json.min.js',
                     ]
                 }
             },
@@ -49,17 +50,17 @@ module.exports = function (grunt) {
                 files: {
                     'public/js/admin.min.js':
                         [
-                            'public/lib/redactor3/redactor.min.js',
-                            'public/lib/redactor3/plugins/alignment.min.js',
-                            'public/lib/redactor3/plugins/counter.min.js',
-                            'public/lib/redactor3/plugins/fontcolor.min.js',
-                            'public/lib/redactor3/plugins/fontfamily.min.js',
-                            'public/lib/redactor3/plugins/fontsize.min.js',
-                            'public/lib/redactor3/plugins/inlinestyle.min.js',
-                            'public/lib/redactor3/plugins/properties.min.js',
-                            'public/lib/redactor3/plugins/specialchars.min.js',
-                            'public/lib/redactor3/plugins/table.min.js',
-                            'public/lib/redactor3/plugins/video.min.js',
+                            'front-lib/redactor3/redactor.min.js',
+                            'front-lib/redactor3/plugins/alignment.min.js',
+                            'front-lib/redactor3/plugins/counter.min.js',
+                            'front-lib/redactor3/plugins/fontcolor.min.js',
+                            'front-lib/redactor3/plugins/fontfamily.min.js',
+                            'front-lib/redactor3/plugins/fontsize.min.js',
+                            'front-lib/redactor3/plugins/inlinestyle.min.js',
+                            'front-lib/redactor3/plugins/properties.min.js',
+                            'front-lib/redactor3/plugins/specialchars.min.js',
+                            'front-lib/redactor3/plugins/table.min.js',
+                            'front-lib/redactor3/plugins/video.min.js',
                             'node_modules/select2/dist/js/select2.full.js',
                             'public/js/admin.js',
                         ]

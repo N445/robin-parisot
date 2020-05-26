@@ -1,12 +1,8 @@
-
-//const routes = require('../../public/js/fos_js_routes.json');
-
-//Routing.setRoutingData(routes);
-
 $(document).ready(function () {
 
     // $('[data-toggle="popover"]').popover();
-    //highlight.initHighlightingOnLoad();
+    // highlight.initHighlightingOnLoad();
+    hljs.initHighlightingOnLoad();
 
     // $.each($('.actualite-date'), function (key, actualiteDate) {
     //     var data = $(actualiteDate).data('data');

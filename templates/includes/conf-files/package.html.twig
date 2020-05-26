@@ -1,18 +1,38 @@
-{% apply markdown_to_html %}
-    ```json
-    // package.json
-    {
-        "author": "Robin PARISOT",
-        "version": "1.0.0",
-        "dependencies": {
-            "bootstrap": "^4.*.*", // "^3.*.*"
-            "jquery": "^3.*.*"
-        },
-        "devDependencies": {
-            "webpack-encore": "^1.*.*",
-            "grunt": "^1.*.*",
-            "sass": "*"
-        }
+{#{% apply markdown_to_html %}#}
+{#    ```json#}
+{#    // package.json#}
+{#    {#}
+{#        "author": "Robin PARISOT",#}
+{#        "version": "1.0.0",#}
+{#        "dependencies": {#}
+{#            "bootstrap": "^4.*.*", // "^3.*.*"#}
+{#            "jquery": "^3.*.*"#}
+{#        },#}
+{#        "devDependencies": {#}
+{#            "webpack-encore": "^1.*.*",#}
+{#            "grunt": "^1.*.*",#}
+{#            "sass": "*"#}
+{#        }#}
+{#    }#}
+{#    ```#}
+{#{% endapply %}#}
+
+
+<pre>
+    <code class="language-json">
+// package.json
+{
+    "author": "Robin PARISOT",
+    "version": "2.0.0",
+    "dependencies": {
+        "bootstrap": "4.*.*", // "3.*.*"
+        "jquery": "3.*.*"
+    },
+    "devDependencies": {
+        "webpack-encore": "1.*.*",
+        "grunt": "1.*.*",
+        "sass": "*"
     }
-    ```
-{% endapply %}
+}
+    </code>
+</pre>

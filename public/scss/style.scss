@@ -1,19 +1,4 @@
-@import "imports/variables";
-@import "./../../node_modules/bootstrap/scss/bootstrap";
-@import "./../../node_modules/animate.css/animate.min.css";
-@import "imports/mixins";
-@import "imports/responsive-helper";
-@import "./../../node_modules/noty/src/noty";
-@import "./../../node_modules/noty/src/themes/mint";
-@import "./../../node_modules/noty/src/themes/relax";
-@import "./../../node_modules/select2/dist/css/select2.min.css";
-@import "./../lib/redactor3/redactor.min.css";
-@import "./../lib/redactor3/plugins/inlinestyle.min.css";
-@import "./../../node_modules/highlight.js/scss/darcula";
-@import "./../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-@import "./../../node_modules/@fortawesome/fontawesome-free/scss/solid";
-@import "./../../node_modules/@fortawesome/fontawesome-free/scss/regular";
-@import "./../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+@import 'imports';
 
 .btn-gradiant {
   @include button-gradiant-variant($custom-primary, $custom-secondary, $custom-primary);
@@ -21,7 +6,7 @@
 
 .bg-gradiant {
   background: $custom-primary linear-gradient(45deg, $custom-primary, $custom-secondary) repeat-x;
-  color: color-yiq($custom-primary);
+  color:      color-yiq($custom-primary);
 }
 
 .shadow-image {
@@ -76,7 +61,7 @@
           @include transition(.1s all ease-in-out);
 
           &:hover {
-            color: $custom-secondary;
+            color: darken($custom-primary, 10);
           }
         }
       }

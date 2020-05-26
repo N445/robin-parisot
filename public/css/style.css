@@ -7,8 +7,8 @@
  */
 @import "./../../node_modules/animate.css/animate.min.css";
 @import "./../../node_modules/select2/dist/css/select2.min.css";
-@import "./../lib/redactor3/redactor.min.css";
-@import "./../lib/redactor3/plugins/inlinestyle.min.css";
+@import "./../../front-lib/redactor3/redactor.min.css";
+@import "./../../front-lib/redactor3/plugins/inlinestyle.min.css";
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -16441,7 +16441,7 @@ readers do not read off random characters that represent icons */
   }
 }
 .homepage .globals-info .links .link a:hover {
-  color: #ff2ced;
+  color: #ff6f14;
 }
 
 /*# sourceMappingURL=style.css.map */
