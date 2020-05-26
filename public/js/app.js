@@ -1,24 +1,12 @@
-// this loads jquery, but does *not* set a global $ or jQuery variable
-const $ = require('jquery');
-require('bootstrap');
-require('@fortawesome/fontawesome-free/css/all.min.css');
-require('@fortawesome/fontawesome-free/js/all.js');
 
-const routes = require('../../public/js/fos_js_routes.json');
-const highlight = require('highlight.js');
-import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
+//const routes = require('../../public/js/fos_js_routes.json');
 
-// var moment = require('moment');
-// require('moment/locale/fr');
-// moment.locale('fr');
-Routing.setRoutingData(routes);
-import Noty from 'noty';
-require('jquery-parallax.js');
+//Routing.setRoutingData(routes);
 
 $(document).ready(function () {
 
     // $('[data-toggle="popover"]').popover();
-    highlight.initHighlightingOnLoad();
+    //highlight.initHighlightingOnLoad();
 
     // $.each($('.actualite-date'), function (key, actualiteDate) {
     //     var data = $(actualiteDate).data('data');

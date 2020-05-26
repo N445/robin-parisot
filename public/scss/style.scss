@@ -1,15 +1,19 @@
 @import "imports/variables";
-@import "~bootstrap/scss/bootstrap";
-@import "~animate.css/animate.min.css";
+@import "./../../node_modules/bootstrap/scss/bootstrap";
+@import "./../../node_modules/animate.css/animate.min.css";
 @import "imports/mixins";
 @import "imports/responsive-helper";
-@import "~noty/src/noty";
-@import "~noty/src/themes/mint";
-@import "~noty/src/themes/relax";
-@import "~select2/dist/css/select2.min.css";
-@import "./../modules/redactor3/redactor.min.css";
-@import "./../modules/redactor3/plugins/inlinestyle.min.css";
-@import "~highlight.js/scss/darcula";
+@import "./../../node_modules/noty/src/noty";
+@import "./../../node_modules/noty/src/themes/mint";
+@import "./../../node_modules/noty/src/themes/relax";
+@import "./../../node_modules/select2/dist/css/select2.min.css";
+@import "./../lib/redactor3/redactor.min.css";
+@import "./../lib/redactor3/plugins/inlinestyle.min.css";
+@import "./../../node_modules/highlight.js/scss/darcula";
+@import "./../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "./../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "./../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "./../../node_modules/@fortawesome/fontawesome-free/scss/brands";
 
 .btn-gradiant {
   @include button-gradiant-variant($custom-primary, $custom-secondary, $custom-primary);
@@ -27,6 +31,7 @@
 .homepage {
   .bandeau {
     position: relative;
+
     &:before {
       content: '';
       position: absolute;
@@ -36,6 +41,7 @@
       height: 100%;
       background-color: rgba(black, .6);
     }
+
     .box {
       position: absolute;
       top: 0;
@@ -46,14 +52,15 @@
       justify-content: center;
       align-items: center;
       z-index: 200;
+
       .content {
-        text-align:       center;
+        text-align: center;
         background-color: rgba(white, .6);
-        height:           60%;
-        display:          flex;
-        align-items:      center;
-        justify-content:  center;
-        backdrop-filter:  blur(5px);
+        height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(5px);
       }
     }
   }
@@ -65,7 +72,7 @@
 
         a {
           font-size: 40px;
-          color:     $custom-primary;
+          color: $custom-primary;
           @include transition(.1s all ease-in-out);
 
           &:hover {

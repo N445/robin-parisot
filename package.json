@@ -1,40 +1,31 @@
 {
-    "devDependencies": {
-        "@symfony/webpack-encore": "^0.28.0",
-        "autoprefixer": "^9.6.1",
-        "core-js": "^3.0.0",
-        "encore": "^0.0.30-beta",
-        "node-sass": "^4.12.0",
-        "postcss-loader": "^3.0.0",
-        "regenerator-runtime": "^0.13.2",
-        "sass-loader": "^7.0.1",
-        "webpack-notifier": "^1.6.0"
-    },
-    "license": "UNLICENSED",
-    "private": true,
-    "scripts": {
-        "dev-server": "encore dev-server",
-        "dev": "encore dev",
-        "watch": "encore dev --watch",
-        "build": "encore production --progress"
-    },
-    "name": "robin-parisot.fr",
+    "name": "mvueApp",
     "version": "1.0.0",
     "main": "index.js",
-    "repository": "git@github.com:N445/robin-parisot.git",
-    "author": "Robin <parisrob@hotmail.fr>",
+    "repository": "git@gitdev.nvl.fr:ozanges/dev-interne/mvueApp.git",
+    "author": "Robin PARISOT <rparisot@nvl.fr>",
+    "license": "MIT",
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.11.1",
-        "animate.css": "^3.7.2",
-        "bootstrap": "^4.3.1",
-        "bs-custom-file-input": "^1.3.2",
-        "highlight.js": "^9.18.0",
+        "@fortawesome/fontawesome-free": "^5.12.1",
+        "bootstrap": "^4.4.1",
+        "bs-custom-file-input": "^1.3.4",
+        "compass-mixins-fixed": "^1.0.1",
         "jquery": "^3.4.1",
-        "jquery-parallax.js": "^1.5.0",
-        "moment": "^2.24.0",
         "noty": "^3.2.0-beta",
-        "popper.js": "^1.15.0",
+        "popper.js": "^1.16.1",
+        "animate.css": "^3.7.2",
+        "highlight.js": "^9.18.0",
+        "jquery-parallax.js": "^1.5.0",
         "select2": "^4.0.10",
         "wow.js": "^1.2.2"
+    },
+    "devDependencies": {
+        "grunt": "^1.0.4",
+        "grunt-contrib-compass": "^1.1.1",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-cssmin": "^3.0.0",
+        "grunt-contrib-sass": "^1.0.0",
+        "grunt-contrib-uglify": "^4.0.1",
+        "grunt-contrib-watch": "^1.1.0"
     }
 }

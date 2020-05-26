@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Robin Parisot - Développeur WEB{% endblock %}</title>
-    {{ encore_entry_link_tags('css/style') }}
+    <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
@@ -18,7 +18,9 @@
     {% block body %}{% endblock %}
 </div>
 
-{{ encore_entry_script_tags('js/app') }}
+<script src="{{ asset('js/plugins.min.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>
