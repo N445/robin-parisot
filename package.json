@@ -14,10 +14,7 @@
         "noty": "^3.2.0-beta",
         "popper.js": "^1.16.1",
         "animate.css": "^3.7.2",
-        "highlight.js": "^9.18.0",
-        "jquery-parallax.js": "^1.5.0",
-        "select2": "^4.0.10",
-        "wow.js": "^1.2.2"
+        "highlight.js": "^9.18.0"
     },
     "devDependencies": {
         "grunt": "^1.0.4",

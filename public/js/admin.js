@@ -3,10 +3,6 @@ $(document).ready(function () {
 
     bsCustomFileInput.init();
 
-    $('.tags-select2').select2({
-        multiple: true,
-        tags: true,
-    });
     $R('.redactor', {
         plugins: ['alignment', 'counter', 'fontcolor', 'fontfamily', 'fontsize', 'inlinestyle', 'properties', 'specialchars', 'table', 'video']
     });

@@ -34,6 +34,12 @@ $(document).ready(function () {
         });
     })*/
 
+    jQuery(window).trigger('resize').trigger('scroll');
+    $('.parallax-window').parallax({
+        naturalWidth: 1920,
+        naturalHeight: 1080
+    });
+
     $('body').on('click', '.contact-send', function (e) {
         e.preventDefault();
         $.ajax({
