@@ -45,7 +45,7 @@ class RssFeed
     /**
      * @ORM\Column(type="integer")
      */
-    private $nbNew;
+    private $nbNew = 0;
 
     public function __construct()
     {
