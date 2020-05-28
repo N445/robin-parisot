@@ -2,10 +2,7 @@
 
 namespace App\Command;
 
-use App\Event\RssFeedEvent;
-use App\Repository\Tools\Rss\RssFeedRepository;
-use App\Service\Tools\Rss\RssParser;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\Tools\Rss\RssImport;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -16,38 +13,22 @@ class RssImportCommand extends Command
     protected static $defaultName = 'app:rss:import';
 
     /**
-     * @var EntityManagerInterface
+     * @var RssImport
      */
-    private $em;
-
-    /**
-     * @var RssFeedRepository
-     */
-    private $rssFeedRepository;
-
-    /**
-     * @var RssParser
-     */
-    private $rssParser;
+    private $rssImport;
 
     /**
      * RssRemoveNewCommand constructor.
-     * @param string|null              $name
-     * @param RssFeedRepository        $rssFeedRepository
-     * @param EntityManagerInterface   $em
-     * @param RssParser                $rssParser
+     * @param string|null $name
+     * @param RssImport   $rssImport
      */
     public function __construct(
         string $name = null,
-        RssFeedRepository $rssFeedRepository,
-        EntityManagerInterface $em,
-        RssParser $rssParser
+    RssImport $rssImport
     )
     {
         parent::__construct($name);
-        $this->rssFeedRepository = $rssFeedRepository;
-        $this->em                = $em;
-        $this->rssParser         = $rssParser;
+        $this->rssImport = $rssImport;
     }
 
     protected function configure()
@@ -58,13 +39,8 @@ class RssImportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-
-        $i = 0;
-        foreach ($this->rssFeedRepository->findAll() as $rssFeed) {
-            $i += $this->rssParser->fluxToObject($rssFeed);
-        }
-        $this->em->flush();
-        $io->success(sprintf('%d item ajouté', $i));
+        $this->rssImport->import();
+        $io->success('item ajouté');
 
         return 0;
     }
