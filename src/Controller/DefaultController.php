@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Helper\ContactPopulator;
+use App\Provider\RssProvider;
 use App\Service\ContactDiscord;
 use App\Service\Recaptcha;
 use Doctrine\ORM\EntityManagerInterface;
@@ -17,27 +18,37 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
-    
+
     /**
      * @var EntityManagerInterface
      */
     private $em;
+
     /**
      * @var ContactDiscord
      */
     private $contactDiscord;
-    
+
+    /**
+     * @var RssProvider
+     */
+    private $rssProvider;
+
     /**
      * DefaultController constructor.
      * @param EntityManagerInterface $em
+     * @param ContactDiscord         $contactDiscord
+     * @param RssProvider            $rssProvider
      */
     public function __construct(
         EntityManagerInterface $em,
-        ContactDiscord $contactDiscord
+        ContactDiscord $contactDiscord,
+        RssProvider $rssProvider
     )
     {
-        $this->em = $em;
+        $this->em             = $em;
         $this->contactDiscord = $contactDiscord;
+        $this->rssProvider    = $rssProvider;
     }
     
     /**
@@ -48,22 +59,17 @@ class DefaultController extends AbstractController
     public function index(Request $request)
     {
         $contact = new Contact();
-        $form = $this->createForm(ContactType::class, $contact);
+        $form    = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
         if ($request->isXmlHttpRequest()) {
-            
             return $this->contactSend($form, $request);
-            return new JsonResponse([
-                'success' => true,
-                'view' => $this->renderView('includes/contact-form.html.twig', [
-                    'form' => $form->createView(),
-                ]),
-            ]);
         }
-        
+
         return $this->render('default/index.html.twig', [
-            'form' => $form->createView(),
+            'form'      => $form->createView(),
             'recaptcha' => Recaptcha::RECAPTCHA_KEY,
+            'rssFeeds'  => $this->rssProvider->getHomeRssFeeds(),
+            'rssItems'  => $this->rssProvider->getHomeRssItems(),
         ]);
     }
     

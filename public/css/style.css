@@ -16442,5 +16442,9 @@ readers do not read off random characters that represent icons */
 .homepage .globals-info .links .link a:hover {
   color: #ff6f14;
 }
+.homepage .rss-feed .rssFeeds .rssFeed.active {
+  background-color: #ff8e47;
+  border-color: #ff6f14;
+}
 
 /*# sourceMappingURL=style.css.map */

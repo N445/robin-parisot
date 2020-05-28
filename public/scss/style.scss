@@ -57,12 +57,23 @@
 
         a {
           font-size: 40px;
-          color: $custom-primary;
+          color:     $custom-primary;
           @include transition(.1s all ease-in-out);
 
           &:hover {
             color: darken($custom-primary, 10);
           }
+        }
+      }
+    }
+  }
+
+  .rss-feed {
+    .rssFeeds {
+      .rssFeed {
+        &.active {
+          background-color: $custom-primary;
+          border-color:     darken($custom-primary, 10);
         }
       }
     }

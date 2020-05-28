@@ -34,11 +34,18 @@ $(document).ready(function () {
         });
     })*/
 
-    jQuery(window).trigger('resize').trigger('scroll');
-    $('.parallax-window').parallax({
-        naturalWidth: 1920,
-        naturalHeight: 1080
-    });
+    $('.rssFeed').on('click', function (e) {
+        e.preventDefault();
+        $('.rssFeed').removeClass('active');
+        $(this).addClass('active');
+        var filter = $(this).data('filter');
+        if ('*' === filter) {
+            $('.rssItem').slideDown(200);
+            return;
+        }
+        $('.rssItem').not(filter).slideUp(200);
+        $(`.rssItem${filter}`).slideDown(200);
+    })
 
     $('body').on('click', '.contact-send', function (e) {
         e.preventDefault();

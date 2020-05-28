@@ -8,7 +8,7 @@
     <title>{% block title %}Robin Parisot - Développeur WEB{% endblock %}</title>
     <meta name="description" content="{% block metadescription %}Robin Parisot, Développeur WEB fullstack PHP, Symfony, Magento 2{% endblock %}">
     <meta name="author" content="Robin PARISOT">
-    <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {% block stylesheets %}{% endblock %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102245223-3"></script>
@@ -26,7 +26,8 @@
 {% include 'includes/footer.html.twig' %}
 <script src="{{ asset('js/plugins.min.js') }}"></script>
 <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-<script src="{{ asset('js/app.min.js') }}"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>

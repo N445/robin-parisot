@@ -1,0 +1,48 @@
+<div class="rss-feed mt-5">
+    <h2>Flux RSS</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sticky-top pt-4">
+                <div class="list-group shadow rssFeeds">
+                    <a href="#" class="list-group-item list-group-item-action active rssFeed"
+                       data-filter="*">
+                        Tout
+                    </a>
+                    {% for rssFeed in rssFeeds %}
+                        <a href="#" class="list-group-item list-group-item-action rssFeed d-flex align-items-center"
+                           data-filter=".{{ rssFeed.slug }}">
+                            {{ rssFeed.title }}
+                            <span class="badge badge-secondary ml-auto">
+                                            {{ rssFeed.nbNew }}
+                                        </span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md rssItems pt-4">
+            {% for rssItem in rssItems %}
+                <div class="{% if not loop.last %}mb-4{% endif %} rssItem {{ rssItem.rssFeed.slug }}">
+                    <div class="card shadow">
+                        <div class="card-body p-2">
+                            {{ rssItem.title }}
+                        </div>
+                        <div class="card-footer p-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="info">
+                                    <small>{{ rssItem.rssFeed.title }}</small><br>
+                                    <small>{{ rssItem.pubdate|date('d/m/Y H:i') }}</small>
+                                </div>
+                                <div class="link">
+                                    <a href="{{ rssItem.link }}" target="_blank" class="text-custom-primary">
+                                        Voir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

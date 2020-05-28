@@ -2,22 +2,43 @@
 
 namespace App\Controller;
 
-use App\Service\Tools\Apod\ApodProvider;
+use App\Repository\Tools\Rss\RssFeedRepository;
+use App\Service\Tools\Rss\RssParser;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
-    /**
-     * @var ApodProvider
-     */
-    private $apodProvider;
 
+    /**
+     * @var RssParser
+     */
+    private $rssParser;
+
+    /**
+     * @var RssFeedRepository
+     */
+    private $rssFeedRepository;
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+
+    /**
+     * AdminController constructor.
+     * @param RssParser $rssParser
+     */
     public function __construct(
-        ApodProvider $apodProvider
+        RssParser $rssParser,
+    RssFeedRepository $rssFeedRepository,
+    EntityManagerInterface $em
     )
     {
-        $this->apodProvider = $apodProvider;
+        $this->rssParser = $rssParser;
+        $this->rssFeedRepository = $rssFeedRepository;
+        $this->em = $em;
     }
 
 
@@ -26,7 +47,6 @@ class AdminController extends AbstractController
      */
     public function index()
     {
-        $this->apodProvider->getApod();
         return $this->render('admin/index.html.twig', [
             'current_group' => 'ADMIN',
         ]);
