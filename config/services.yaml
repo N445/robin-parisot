@@ -23,15 +23,10 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
     App\Maker\MakeBs4Crud:
         arguments: ["@maker.doctrine_helper"]
         tags: ['maker.command']
 
     App\Client\ApodClient: '@eight_points_guzzle.client.apodClient'
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
-
-    #twig.extension.markdown:
-    #    class: Twig\Extra\Markdown\MarkdownExtension
-    #    tags:
-    #        - { name: 'twig.extension' }

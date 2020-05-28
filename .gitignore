@@ -1,8 +1,8 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
@@ -14,19 +14,14 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
-###> symfony/web-server-bundle ###
-/.web-server-pid
-###< symfony/web-server-bundle ###
-/.idea
-###> symfony/webpack-encore-bundle ###
-/node_modules/
- #/public/build/
-npm-debug.log
-yarn-error.log
-###< symfony/webpack-encore-bundle ###
-
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
-/public/uploads/actualites/
+
+
+
+/.idea
+/node_modules/
+yarn-error.log
+/public/media/cache/
 !.gitkeep

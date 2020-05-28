@@ -44,7 +44,7 @@ $(document).ready(function () {
             return;
         }
         $('.rssItem').not(filter).slideUp(200);
-        $(`.rssItem${filter}`).slideDown(200);
+        $('.rssItem' + filter).slideDown(200);
     })
 
     $('body').on('click', '.contact-send', function (e) {
