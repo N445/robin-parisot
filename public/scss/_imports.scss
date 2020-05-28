@@ -1,7 +1,7 @@
 @import "imports/variables";
 
 @import "./../../node_modules/bootstrap/scss/bootstrap";
-@import "./../../node_modules/animate.css/animate.min.css";
+@import "./../../node_modules/animate.css/animate";
 
 @import "imports/mixins";
 @import "imports/responsive-helper";
@@ -12,8 +12,8 @@
 @import "./../../node_modules/noty/src/themes/relax";
 
 // REDACTOR
-@import "./../../front-lib/redactor3/redactor.min.css";
-@import "./../../front-lib/redactor3/plugins/inlinestyle.min.css";
+@import "./../../front-lib/redactor3/redactor.min";
+@import "./../../front-lib/redactor3/plugins/inlinestyle.min";
 
 // HIGHLIGHT
 @import "./../../node_modules/highlight.js/scss/darcula";
