@@ -9,12 +9,12 @@ use App\Repository\Tools\Rss\RssItemRepository;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Contracts\Cache\ItemInterface;
 
 class RssProvider
 {
-    const RSS_FEEDS = 'rssFeeds2';
-    const RSS_ITEMS = 'rssItems2';
+    const RSS_FEEDS    = 'rssFeeds2';
+    const RSS_ITEMS    = 'rssItems2';
+    const ENABLE_CACHE = false;
 
     /**
      * @var RssFeedRepository
@@ -60,14 +60,13 @@ class RssProvider
      */
     public function getHomeRssFeeds()
     {
-        return $this->rssFeedRepository->getHome();
-        /*if ($this->kernel->isDebug()) {
+        if (!self::ENABLE_CACHE) {
             return $this->rssFeedRepository->getHome();
         }
         return $this->cache->get(self::RSS_FEEDS, function (ItemInterface $item) {
             $item->expiresAfter(3600);
             return $this->rssFeedRepository->getHome();
-        });*/
+        });
     }
 
     /**
@@ -76,13 +75,42 @@ class RssProvider
      */
     public function getHomeRssItems()
     {
-        return $this->rssItemRepository->getHome();
-        /*if ($this->kernel->isDebug()) {
+        if (!self::ENABLE_CACHE) {
             return $this->rssItemRepository->getHome();
         }
         return $this->cache->get(self::RSS_ITEMS, function (ItemInterface $item) {
             $item->expiresAfter(3600);
             return $this->rssItemRepository->getHome();
-        });*/
+        });
+    }
+
+    /**
+     * @return RssFeed[]
+     * @throws InvalidArgumentException
+     */
+    public function getRssFeeds()
+    {
+        if (!self::ENABLE_CACHE) {
+            return $this->rssFeedRepository->getAll();
+        }
+        return $this->cache->get(self::RSS_FEEDS, function (ItemInterface $item) {
+            $item->expiresAfter(3600);
+            return $this->rssFeedRepository->getAll();
+        });
+    }
+
+    /**
+     * @return RssItem[]
+     * @throws InvalidArgumentException
+     */
+    public function getRssItems()
+    {
+        if (!self::ENABLE_CACHE) {
+            return $this->rssItemRepository->getAll();
+        }
+        return $this->cache->get(self::RSS_ITEMS, function (ItemInterface $item) {
+            $item->expiresAfter(3600);
+            return $this->rssItemRepository->getAll();
+        });
     }
 }

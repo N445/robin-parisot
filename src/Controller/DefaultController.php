@@ -101,4 +101,18 @@ class DefaultController extends AbstractController
             ]),
         ]);
     }
+
+    /**
+     * Création de la route "rss"
+     * @Route("/rss", name="RSS", methods={"GET"})
+     */
+    public function rss()
+            {
+                return $this->render('default/rss.html.twig', [
+                    'rssFeeds'  => $this->rssProvider->getRssFeeds(),
+                    'rssItems'  => $this->rssProvider->getRssItems(),
+                ]);
+            }
+
+
 }

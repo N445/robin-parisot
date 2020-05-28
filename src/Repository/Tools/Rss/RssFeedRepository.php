@@ -31,6 +31,18 @@ class RssFeedRepository extends ServiceEntityRepository
             ;
     }
 
+    /**
+     * @return RssFeed[]
+     */
+    public function getAll()
+    {
+        return $this->createQueryBuilder('r')
+                    ->orderBy('r.title', 'ASC')
+                    ->getQuery()
+                    ->getResult()
+            ;
+    }
+
     // /**
     //  * @return RssFeed[] Returns an array of RssFeed objects
     //  */

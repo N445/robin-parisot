@@ -36,6 +36,18 @@ class RssItemRepository extends ServiceEntityRepository
     /**
      * @return RssItem[]
      */
+    public function getAll()
+    {
+        return $this->createQueryBuilder('r')
+                    ->orderBy('r.pubdate', 'DESC')
+                    ->getQuery()
+                    ->getResult()
+            ;
+    }
+
+    /**
+     * @return RssItem[]
+     */
     public function getAllByDate()
     {
         return $this->createQueryBuilder('r')
