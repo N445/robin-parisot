@@ -50,7 +50,7 @@ $(document).ready(function () {
     $('body').on('click', '.contact-send', function (e) {
         e.preventDefault();
         $.ajax({
-            url: Routing.generate('homepage'),
+            url: Routing.generate('HOMEPAGE'),
             method: "POST",
             data: $(this).parent('form').serialize()
         }).always(function (data) {

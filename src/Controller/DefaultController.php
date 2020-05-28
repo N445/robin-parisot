@@ -52,7 +52,7 @@ class DefaultController extends AbstractController
     }
     
     /**
-     * @Route("/", name="homepage", methods={"GET","POST"}, options={"expose"=true})
+     * @Route("/", name="HOMEPAGE", methods={"GET","POST"}, options={"expose"=true})
      * @param Request $request
      * @return Response
      */
