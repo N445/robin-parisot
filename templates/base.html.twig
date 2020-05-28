@@ -24,10 +24,10 @@
 <body>
 {% block body %}{% endblock %}
 {% include 'includes/footer.html.twig' %}
-<script src="{{ asset('js/plugins.min.js') }}"></script>
-<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-<script src="{{ asset('js/app.js') }}"></script>
+<script type="application/javascript" src="{{ asset('js/plugins.min.js') }}"></script>
+<script type="text/json" src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+<script type="application/javascript" src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script type="application/javascript" src="{{ asset('js/app.js') }}"></script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>
