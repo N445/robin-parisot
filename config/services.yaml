@@ -30,4 +30,3 @@ services:
         tags: ['maker.command']
 
     App\Client\ApodClient: '@eight_points_guzzle.client.apodClient'
-    App\Client\DeezerClient: '@eight_points_guzzle.client.deezerClient'
