@@ -23,9 +23,6 @@
     "doctrine/common": {
         "version": "2.13.1"
     },
-    "doctrine/data-fixtures": {
-        "version": "1.4.3"
-    },
     "doctrine/dbal": {
         "version": "2.10.2"
     },
@@ -44,16 +41,17 @@
             "src/Repository/.gitignore"
         ]
     },
-    "doctrine/doctrine-fixtures-bundle": {
-        "version": "3.0",
+    "doctrine/doctrine-migrations-bundle": {
+        "version": "1.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "3.0",
-            "ref": "fc52d86631a6dfd9fdf3381d0b7e3df2069e51b3"
+            "version": "1.2",
+            "ref": "c1431086fec31f17fbcfe6d6d7e92059458facc1"
         },
         "files": [
-            "src/DataFixtures/AppFixtures.php"
+            "config/packages/doctrine_migrations.yaml",
+            "src/Migrations/.gitignore"
         ]
     },
     "doctrine/event-manager": {
@@ -67,6 +65,9 @@
     },
     "doctrine/lexer": {
         "version": "1.2.1"
+    },
+    "doctrine/migrations": {
+        "version": "2.2.1"
     },
     "doctrine/orm": {
         "version": "v2.7.3"
@@ -92,9 +93,6 @@
             "config/packages/eight_points_guzzle.yaml"
         ]
     },
-    "firebase/php-jwt": {
-        "version": "v5.2.0"
-    },
     "friendsofsymfony/jsrouting-bundle": {
         "version": "2.3",
         "recipe": {
@@ -107,27 +105,6 @@
             "config/routes/fos_js_routing.yaml"
         ]
     },
-    "fzaninotto/faker": {
-        "version": "v1.9.1"
-    },
-    "google/apiclient": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "2.0",
-            "ref": "49c5d7a66d863d28513979bf0666dc77599100c0"
-        },
-        "files": [
-            "config/packages/google_apiclient.yaml"
-        ]
-    },
-    "google/apiclient-services": {
-        "version": "v0.137"
-    },
-    "google/auth": {
-        "version": "v1.9.0"
-    },
     "guzzlehttp/guzzle": {
         "version": "6.5.4"
     },
@@ -139,6 +116,15 @@
     },
     "imagine/imagine": {
         "version": "1.2.3"
+    },
+    "laminas/laminas-code": {
+        "version": "3.4.1"
+    },
+    "laminas/laminas-eventmanager": {
+        "version": "3.2.1"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.0.4"
     },
     "liip/imagine-bundle": {
         "version": "1.8",
@@ -165,11 +151,11 @@
     "ocramius/package-versions": {
         "version": "1.8.0"
     },
+    "ocramius/proxy-manager": {
+        "version": "2.8.0"
+    },
     "php": {
         "version": "7.4"
-    },
-    "phpseclib/phpseclib": {
-        "version": "2.0.27"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -344,6 +330,9 @@
     "symfony/options-resolver": {
         "version": "v5.0.8"
     },
+    "symfony/orm-pack": {
+        "version": "v1.0.8"
+    },
     "symfony/phpunit-bridge": {
         "version": "4.3",
         "recipe": {
@@ -510,6 +499,9 @@
     },
     "twig/twig": {
         "version": "v3.0.3"
+    },
+    "webimpress/safe-writer": {
+        "version": "2.0.1"
     },
     "willdurand/jsonp-callback-validator": {
         "version": "v1.1.0"
