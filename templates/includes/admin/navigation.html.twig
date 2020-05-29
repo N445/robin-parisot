@@ -8,7 +8,7 @@
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('homepage') }}">Le site</a>
+                        <a class="nav-link" href="{{ path('HOMEPAGE') }}">Le site</a>
                     </li>
                     <li class="nav-item{% if current_group == 'ADMIN' %} active{% endif %}">
                         <a class="nav-link" href="{{ path('admin') }}">Index</a>
@@ -21,7 +21,7 @@
                             Tools
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ path('TOOLS_YOUTUBE_PLAYLIST_INDEX') }}">Youtube to Deezer</a>
+                            <a class="dropdown-item" href="{{ path('YOUTUBE_TO_DEEZER') }}">Youtube to Deezer</a>
                         </div>
                     </li>
 {#                    <li class="nav-item{% if current_group == 'ACTUALITE_GROUP' %} active{% endif %}">#}
