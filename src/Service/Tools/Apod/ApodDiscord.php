@@ -62,7 +62,7 @@ class ApodDiscord implements EventSubscriberInterface
             ->setImage($image);
         $message->setEmbeds([$embed]);
         
-        (new DiscordSender())->init($_ENV["DISCORD_APOD_ID"], $_ENV["DISCORD_APOD_TOKEN"])
+        (new DiscordSender($_ENV["DISCORD_APOD_ID"], $_ENV["DISCORD_APOD_TOKEN"]))
             ->send($message);
     }
 }
