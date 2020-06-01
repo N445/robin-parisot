@@ -2081,16 +2081,16 @@
         },
         {
             "name": "n445/easydiscord",
-            "version": "1.5.4",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/N445/easydiscord.git",
-                "reference": "8c6fb24b2779845ae893ea7f73aed6e4617934d3"
+                "reference": "f8395872dd8a1b4a108384d7e5ba9e01443e723f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/N445/easydiscord/zipball/8c6fb24b2779845ae893ea7f73aed6e4617934d3",
-                "reference": "8c6fb24b2779845ae893ea7f73aed6e4617934d3",
+                "url": "https://api.github.com/repos/N445/easydiscord/zipball/f8395872dd8a1b4a108384d7e5ba9e01443e723f",
+                "reference": "f8395872dd8a1b4a108384d7e5ba9e01443e723f",
                 "shasum": ""
             },
             "require": {
@@ -2099,7 +2099,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -2123,7 +2123,7 @@
                 "N445",
                 "discord"
             ],
-            "time": "2020-06-01T09:55:44+00:00"
+            "time": "2020-06-01T11:18:04+00:00"
         },
         {
             "name": "ocramius/package-versions",
