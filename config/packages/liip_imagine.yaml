@@ -28,14 +28,6 @@ liip_imagine:
                 thumbnail:
                     size: [1200, 500]
                     mode: outbound
-        tool:
-            filters:
-                relative_resize:
-                    widen: 100
-        tool_icon:
-            filters:
-                relative_resize:
-                    widen: 30
         admin_thumbnail_small:
             filters:
                 relative_resize:

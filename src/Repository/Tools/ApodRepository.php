@@ -33,6 +33,18 @@ class ApodRepository extends ServiceEntityRepository
             ;
     }
 
+    /**
+     * @return Apod[]
+     */
+    public function getAllOrderByDate()
+    {
+        return $this->createQueryBuilder('a')
+                    ->orderBy('a.date', 'DESC')
+                    ->getQuery()
+                    ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Apod[] Returns an array of Apod objects
     //  */
