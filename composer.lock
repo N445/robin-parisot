@@ -2081,16 +2081,16 @@
         },
         {
             "name": "n445/easydiscord",
-            "version": "1.6.4",
+            "version": "1.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/N445/easydiscord.git",
-                "reference": "1091fbb2613dd8dd0adbf96eda1b6e9fd03e4fc5"
+                "reference": "14639fb7d3edf54a117a0173e1fc20d14b1223b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/N445/easydiscord/zipball/1091fbb2613dd8dd0adbf96eda1b6e9fd03e4fc5",
-                "reference": "1091fbb2613dd8dd0adbf96eda1b6e9fd03e4fc5",
+                "url": "https://api.github.com/repos/N445/easydiscord/zipball/14639fb7d3edf54a117a0173e1fc20d14b1223b5",
+                "reference": "14639fb7d3edf54a117a0173e1fc20d14b1223b5",
                 "shasum": ""
             },
             "require": {
@@ -2123,7 +2123,7 @@
                 "N445",
                 "discord"
             ],
-            "time": "2020-06-01T13:25:56+00:00"
+            "time": "2020-06-01T15:05:20+00:00"
         },
         {
             "name": "ocramius/package-versions",
