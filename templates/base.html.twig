@@ -8,6 +8,7 @@
     <title>{% block title %}Robin Parisot - Développeur WEB{% endblock %}</title>
     <meta name="description" content="{% block metadescription %}Robin Parisot, Développeur WEB fullstack PHP, Symfony, Magento 2{% endblock %}">
     <meta name="author" content="Robin PARISOT">
+    {% include 'includes/open-graph.html.twig' %}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {% block stylesheets %}{% endblock %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
