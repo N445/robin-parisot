@@ -48,3 +48,9 @@ liip_imagine:
             filters:
                 relative_resize:
                     widen: 350
+
+        og_facebook:
+            filters:
+                thumbnail:
+                    size: [530, 280]
+                    mode: outbound
