@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abd93cf23da54aab1243a62e274c6d6c",
+    "content-hash": "3a691a8a5dd404bc89aa35aa5794882f",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2081,16 +2081,16 @@
         },
         {
             "name": "n445/easydiscord",
-            "version": "1.6.1",
+            "version": "1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/N445/easydiscord.git",
-                "reference": "f8395872dd8a1b4a108384d7e5ba9e01443e723f"
+                "reference": "1091fbb2613dd8dd0adbf96eda1b6e9fd03e4fc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/N445/easydiscord/zipball/f8395872dd8a1b4a108384d7e5ba9e01443e723f",
-                "reference": "f8395872dd8a1b4a108384d7e5ba9e01443e723f",
+                "url": "https://api.github.com/repos/N445/easydiscord/zipball/1091fbb2613dd8dd0adbf96eda1b6e9fd03e4fc5",
+                "reference": "1091fbb2613dd8dd0adbf96eda1b6e9fd03e4fc5",
                 "shasum": ""
             },
             "require": {
@@ -2123,7 +2123,7 @@
                 "N445",
                 "discord"
             ],
-            "time": "2020-06-01T11:18:04+00:00"
+            "time": "2020-06-01T13:25:56+00:00"
         },
         {
             "name": "ocramius/package-versions",
