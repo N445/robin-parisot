@@ -34,7 +34,7 @@ class ContactDiscord
             ->setFooter($footer);
         $message->setEmbeds([$embed]);
 
-        (new DiscordSender())->init(DiscordKey::CONTACT_ID, DiscordKey::CONTACT_TOKEN)
+        (new DiscordSender())->init($_ENV["DISCORD_CONTACT_ID"], $_ENV["DISCORD_CONTACT_TOKEN"])
             ->send($message);
         
     }

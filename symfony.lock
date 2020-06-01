@@ -143,7 +143,7 @@
         "version": "2.1.0"
     },
     "n445/easydiscord": {
-        "version": "1.5.2"
+        "version": "1.5.4"
     },
     "nikic/php-parser": {
         "version": "v4.4.0"
@@ -358,6 +358,9 @@
         "version": "v1.17.0"
     },
     "symfony/polyfill-php73": {
+        "version": "v1.17.0"
+    },
+    "symfony/polyfill-php80": {
         "version": "v1.17.0"
     },
     "symfony/process": {
