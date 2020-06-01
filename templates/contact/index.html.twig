@@ -2,13 +2,9 @@
 
 {% block title %}Contact index{% endblock %}
 {% block body %}
-    <div class="container">
         <div class="row">
             <div class="col">
                 <h1>Contact index</h1>
-                <div class="add_new mb-3">
-                    <a class="btn btn-success" href="{{ path('contact_new') }}">Ajouter</a>
-                </div>
                 <div class="table-responsive-sm">
                     <table class="table table-hover table-sm">
                         <thead>
@@ -36,10 +32,6 @@
                                        href="{{ path('contact_show', {'id': contact.id}) }}">
                                         Voir
                                     </a>
-{#                                    <a class="btn btn-info btn-sm"#}
-{#                                       href="{{ path('contact_edit', {'id': contact.id}) }}">#}
-{#                                        Modifier#}
-{#                                    </a>#}
                                 </td>
                             </tr>
                         {% else %}
@@ -50,10 +42,6 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="add_new mt-3">
-                    <a class="btn btn-success" href="{{ path('contact_new') }}">Ajouter</a>
-                </div>
             </div>
         </div>
-    </div>
 {% endblock %}
