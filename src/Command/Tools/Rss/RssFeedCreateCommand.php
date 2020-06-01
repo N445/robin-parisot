@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace App\Command\Tools\Rss;
 
 use App\Entity\Tools\Rss\RssFeed;
 use Doctrine\ORM\EntityManagerInterface;

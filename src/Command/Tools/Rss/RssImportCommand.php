@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace App\Command\Tools\Rss;
 
 use App\Service\Tools\Rss\RssImport;
 use Symfony\Component\Console\Command\Command;

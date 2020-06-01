@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace App\Command\Tools\Apod;
 
 use App\Service\Tools\Apod\ApodProvider;
 use Symfony\Component\Console\Command\Command;

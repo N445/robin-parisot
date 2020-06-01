@@ -42,11 +42,7 @@ class ApodFlush implements EventSubscriberInterface
 
     public function flush(ApodEvent $apodEvent)
     {
-        $apod = $apodEvent->getApod();
-        if ($this->apodHelper->isApodExist($apod)) {
-            return;
-        }
-        $this->em->persist($apod);
+        $this->em->persist($apodEvent->getApod());
         $this->em->flush();
     }
 }

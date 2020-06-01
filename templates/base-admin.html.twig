@@ -11,6 +11,7 @@
 </head>
 <body>
 {% include 'includes/admin/navigation.html.twig' %}
+{% include 'includes/notification.html.twig' %}
 <div class="container">
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <h1>Salut dans l'admin gros</h1>

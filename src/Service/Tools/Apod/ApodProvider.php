@@ -37,17 +37,25 @@ class ApodProvider
     private $dispatcher;
 
     /**
+     * @var ApodHelper
+     */
+    private $apodHelper;
+
+    /**
      * ApodProvider constructor.
      * @param ApodClient               $apodClient
      * @param EventDispatcherInterface $dispatcher
+     * @param ApodHelper               $apodHelper
      */
     public function __construct(
         ApodClient $apodClient,
-        EventDispatcherInterface $dispatcher
+        EventDispatcherInterface $dispatcher,
+        ApodHelper $apodHelper
     )
     {
         $this->apodClient = $apodClient;
         $this->dispatcher = $dispatcher;
+        $this->apodHelper = $apodHelper;
     }
 
     /**
@@ -64,7 +72,9 @@ class ApodProvider
             return $this->rawToObject();
         });
 
-        $this->dispatcher->dispatch(new ApodEvent($apod), ApodEvent::APOD_NEW);
+        if (!$this->apodHelper->isApodExist($apod)) {
+            $this->dispatcher->dispatch(new ApodEvent($apod), ApodEvent::APOD_NEW);
+        }
     }
 
     /**

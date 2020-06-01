@@ -2,15 +2,18 @@
 
 {% block body %}
     <h2>APOD</h2>
+    <p>
+        <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank" class="btn btn-sm btn-info">
+            Voir
+        </a>
+    </p>
     <table class="table table-striped table-hover">
         <thead>
         <th></th>
         <th>
             Title
         </th>
-        <th>
-            Action
-        </th>
+        <th></th>
         </thead>
         <tbody>
         {% for apod in apods %}
@@ -23,8 +26,9 @@
                     <small>{{ apod.explanation }}</small>
                 </td>
                 <td>
-                    <a href="{{ apod.hdurl }}" target="_blank" class="btn btn-sm btn-info">
-                        Voir
+                    <a href="{{ path('TOOLS_APOD_SEND', {'id': apod.id}) }}"
+                       class="btn btn-sm btn-info">
+                        Envoyer sur le discord
                     </a>
                 </td>
             </tr>
