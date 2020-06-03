@@ -3,7 +3,7 @@
 namespace App\Service\Tools\Apod;
 
 use App\Client\ApodClient;
-use App\Entity\Tools\Apod;
+use App\Entity\Tools\Apod\Apod;
 use App\Event\ApodEvent;
 use DateInterval;
 use DateTime;
@@ -98,7 +98,7 @@ class ApodProvider
         return (new Apod())
             ->setDate($date)
             ->setExplanation($response['explanation'])
-            ->setHdurl($response['hdurl'])
+            ->setHdurl($response['hdurl'] ?? null)
             ->setMediatype($response['media_type'])
             ->setServiceVersion($response['service_version'])
             ->setTitle($response['title'])

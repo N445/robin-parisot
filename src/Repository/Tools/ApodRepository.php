@@ -2,7 +2,7 @@
 
 namespace App\Repository\Tools;
 
-use App\Entity\Tools\Apod;
+use App\Entity\Tools\Apod\Apod;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

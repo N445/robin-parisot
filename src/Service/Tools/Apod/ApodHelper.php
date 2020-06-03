@@ -2,7 +2,7 @@
 
 namespace App\Service\Tools\Apod;
 
-use App\Entity\Tools\Apod;
+use App\Entity\Tools\Apod\Apod;
 use App\Repository\Tools\ApodRepository;
 
 class ApodHelper

@@ -2,7 +2,7 @@
 
 namespace App\Event;
 
-use App\Entity\Tools\Apod;
+use App\Entity\Tools\Apod\Apod;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class ApodEvent extends Event
