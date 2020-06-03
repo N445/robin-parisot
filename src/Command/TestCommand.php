@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use N445\EasyDiscord\Helper\Colors;
+use N445\EasyDiscord\Model\Author;
 use N445\EasyDiscord\Model\Embed;
 use N445\EasyDiscord\Model\Field;
 use N445\EasyDiscord\Model\Message;
@@ -49,11 +50,17 @@ class TestCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+
+
+        $author = (new Author())
+            ->setName('APOD')
+            ->setIconUrl('https://apod.nasa.gov/apod/apod.gif')
+        ;
         $embed = (new Embed())
             ->setTitle('My embed from EasyDiscord')
             ->setDescription('https://www.youtube.com/watch?v=axGn6qeJHcM')
+            ->setAuthor($author)
         ;
-
         $message = (new Message())
             ->setUsername('My super bot')
             ->addEmbed($embed)
