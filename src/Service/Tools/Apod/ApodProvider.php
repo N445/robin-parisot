@@ -27,7 +27,7 @@ class ApodProvider
     private $apodClient;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $now;
 
@@ -64,7 +64,8 @@ class ApodProvider
      */
     public function getApod(?DateTime $dateTime = null)
     {
-        $this->setDate($dateTime);
+        $this->now = $dateTime;
+        //$this->setDate($dateTime);
 
         $cache = new FilesystemAdapter();
         $apod  = $cache->get(sprintf(self::RESPONSE_KEY, $this->now->format('Y-m-d')), function (ItemInterface $item) {
@@ -112,11 +113,12 @@ class ApodProvider
      */
     private function getResponse()
     {
-        return $this->apodClient->get(self::URL, [
-            'query' => [
+        $query = array_filter([
                 'api_key' => self::API_KEY,
-                'date'    => $this->now->format('Y-m-d'),
-            ],
+                'date'    => $this->now ? $this->now->format('Y-m-d'):null,
+            ]);
+        return $this->apodClient->get(self::URL, [
+            'query' => $query,
         ]);
     }
 }
