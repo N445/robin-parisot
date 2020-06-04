@@ -18,7 +18,7 @@ class ApodProvider
 //    const URL     = 'https://apod.nasa.gov/apod/astropix.html';
     const URL          = '/planetary/apod';
     const API_KEY      = 'lRbS02ibzUTkPp15RlefUh38W6uF49L1FUDbOplU';
-    const RESPONSE_KEY = '3apod_%s';
+    const RESPONSE_KEY = 'apod_%s';
     const DATE_FORMAT  = 'Y-m-d';
 
     /**
@@ -65,7 +65,7 @@ class ApodProvider
     public function getApod(?DateTime $dateTime = null)
     {
         $this->now = $dateTime;
-        //$this->setDate($dateTime);
+        $this->setDate($dateTime);
 
         $cache = new FilesystemAdapter();
         $apod  = $cache->get(sprintf(self::RESPONSE_KEY, $this->now->format('Y-m-d')), function (ItemInterface $item) {
@@ -84,7 +84,7 @@ class ApodProvider
     private function setDate(?DateTime $dateTime = null)
     {
         $this->now = $dateTime ?? new DateTime("NOW");
-        if ((int)$this->now->format('H') < 6) {
+        if ((int)$this->now->format('H') < 7) {
             $this->now->sub(new DateInterval('P1D'));
         }
     }
