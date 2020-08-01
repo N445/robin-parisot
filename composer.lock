@@ -2081,16 +2081,16 @@
         },
         {
             "name": "n445/easydiscord",
-            "version": "1.6.5",
+            "version": "1.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/N445/easydiscord.git",
-                "reference": "14639fb7d3edf54a117a0173e1fc20d14b1223b5"
+                "reference": "c5535995c7e032c2d1ffdcf231815668bf0304fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/N445/easydiscord/zipball/14639fb7d3edf54a117a0173e1fc20d14b1223b5",
-                "reference": "14639fb7d3edf54a117a0173e1fc20d14b1223b5",
+                "url": "https://api.github.com/repos/N445/easydiscord/zipball/c5535995c7e032c2d1ffdcf231815668bf0304fe",
+                "reference": "c5535995c7e032c2d1ffdcf231815668bf0304fe",
                 "shasum": ""
             },
             "require": {
@@ -2123,7 +2123,7 @@
                 "N445",
                 "discord"
             ],
-            "time": "2020-06-01T15:05:20+00:00"
+            "time": "2020-06-03T20:04:13+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -6918,16 +6918,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.4.0",
+            "version": "v4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120"
+                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
-                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/53c2753d756f5adb586dca79c2ec0e2654dd9463",
+                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463",
                 "shasum": ""
             },
             "require": {
@@ -6966,7 +6966,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-04-10T16:34:50+00:00"
+            "time": "2020-06-03T07:24:19+00:00"
         },
         {
             "name": "symfony/browser-kit",

@@ -1,5 +1,9 @@
 @import "imports/variables";
 
+@import "./../../node_modules/compass-mixins-fixed/lib/animate";
+@import "./../../node_modules/compass-mixins-fixed/lib/compass";
+@import "./../../node_modules/compass-mixins-fixed/lib/lemonade";
+
 @import "./../../node_modules/bootstrap/scss/bootstrap";
 @import "./../../node_modules/animate.css/animate";
 

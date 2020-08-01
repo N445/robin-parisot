@@ -47,13 +47,21 @@ $(document).ready(function () {
         $('.rssItem' + filter).slideDown(200);
     })
 
+    var ajaxsend = false;
     $('body').on('click', '.contact-send', function (e) {
         e.preventDefault();
+        if (ajaxsend) {
+            return;
+        }
+        $('.loader').removeClass('d-none');
+        ajaxsend = true;
         $.ajax({
             url: Routing.generate('HOMEPAGE'),
             method: "POST",
             data: $(this).parent('form').serialize()
         }).always(function (data) {
+            ajaxsend = false;
+            $('.loader').addClass('d-none');
             if (data.success) {
                 new Noty({
                     type: 'success',

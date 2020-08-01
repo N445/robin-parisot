@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\Service\Tools\Apod\ApodProvider;
 use N445\EasyDiscord\Helper\Colors;
 use N445\EasyDiscord\Model\Author;
 use N445\EasyDiscord\Model\Embed;
@@ -28,10 +29,22 @@ class TestCommand extends Command
      */
     private $discordSender;
 
-    public function __construct(string $name = null, DiscordSender $discordSender)
+    /**
+     * @var ApodProvider
+     */
+    private $apodProvider;
+
+    /**
+     * TestCommand constructor.
+     * @param string|null   $name
+     * @param DiscordSender $discordSender
+     * @param ApodProvider  $apodProvider
+     */
+    public function __construct(string $name = null, DiscordSender $discordSender, ApodProvider $apodProvider)
     {
         parent::__construct($name);
         $this->discordSender = $discordSender;
+        $this->apodProvider = $apodProvider;
     }
 
 //    public function __construct(string $name = null, ValidatorInterface $validator)
@@ -49,30 +62,26 @@ class TestCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-
-
-
-        $author = (new Author())
-            ->setName('APOD')
-            ->setIconUrl('https://apod.nasa.gov/apod/apod.gif')
-        ;
-        $embed = (new Embed())
-            ->setTitle('My embed from EasyDiscord')
-            ->setDescription('https://www.youtube.com/watch?v=axGn6qeJHcM')
-            ->setAuthor($author)
-        ;
-        $message = (new Message())
-            ->setUsername('My super bot')
-            ->addEmbed($embed)
-        ;
-
-        $id    = $_ENV['DISCORD_CONTACT_ID'];
-        $token = $_ENV['DISCORD_CONTACT_TOKEN'];
-
-//        (new DiscordSender($id, $token, $this->validator))
-//            ->send($message);
-
-        $this->discordSender->addIdToken($id, $token)->send($message);
+        $this->apodProvider->getApod(new \DateTime("2020-06-02"));
+//
+//        $embed = (new Embed())
+//            ->setTitle('My embed from EasyDiscord')
+//            ->setDescription('https://www.youtube.com/watch?v=axGn6qeJHcM')
+//        ;
+//        $message = (new Message())
+//            ->setUsername('APOD')
+//            ->setAvatarUrl('https://apod.nasa.gov/apod/apod.gif')
+//            ->setTts(true)
+//            ->addEmbed($embed)
+//        ;
+//
+//        $id    = $_ENV['DISCORD_CONTACT_ID'];
+//        $token = $_ENV['DISCORD_CONTACT_TOKEN'];
+//
+////        (new DiscordSender($id, $token, $this->validator))
+////            ->send($message);
+//
+//        $this->discordSender->addIdToken($id, $token)->send($message);
 
         $io->success('Test ok.');
 

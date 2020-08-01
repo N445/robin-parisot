@@ -67,7 +67,8 @@ class ApodProvider
         $this->setDate($dateTime);
 
         $cache = new FilesystemAdapter();
-        $apod  = $cache->get(sprintf(self::RESPONSE_KEY, $this->now->format('Y-m-d')), function (ItemInterface $item) {
+        $this->rawToObject();
+        $apod = $cache->get(sprintf(self::RESPONSE_KEY, $this->now->format('Y-m-d')), function (ItemInterface $item) {
             $item->expiresAfter(3600);
             return $this->rawToObject();
         });
@@ -94,7 +95,10 @@ class ApodProvider
     public function rawToObject()
     {
         $response = json_decode($this->getResponse()->getBody()->getContents(), true);
-        $date     = DateTime::createFromFormat('Y-m-d', $response['date']);
+        dump($response);
+        die;
+
+        $date = DateTime::createFromFormat('Y-m-d', $response['date']);
         return (new Apod())
             ->setDate($date)
             ->setExplanation($response['explanation'])
@@ -113,10 +117,11 @@ class ApodProvider
     private function getResponse()
     {
         return $this->apodClient->get(self::URL, [
-            'query' => [
+            'query' => dump([
                 'api_key' => self::API_KEY,
                 'date'    => $this->now->format('Y-m-d'),
-            ],
+                'hd'      => true,
+            ]),
         ]);
     }
 }
