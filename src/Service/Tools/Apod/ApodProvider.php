@@ -18,7 +18,7 @@ class ApodProvider
 //    const URL     = 'https://apod.nasa.gov/apod/astropix.html';
     const URL          = '/planetary/apod';
     const API_KEY      = 'lRbS02ibzUTkPp15RlefUh38W6uF49L1FUDbOplU';
-    const RESPONSE_KEY = '3apod_%s';
+    const RESPONSE_KEY = 'apod_%s';
     const DATE_FORMAT  = 'Y-m-d';
 
     /**
@@ -27,7 +27,7 @@ class ApodProvider
     private $apodClient;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $now;
 
@@ -64,6 +64,7 @@ class ApodProvider
      */
     public function getApod(?DateTime $dateTime = null)
     {
+        $this->now = $dateTime;
         $this->setDate($dateTime);
 
         $cache = new FilesystemAdapter();
@@ -84,7 +85,7 @@ class ApodProvider
     private function setDate(?DateTime $dateTime = null)
     {
         $this->now = $dateTime ?? new DateTime("NOW");
-        if ((int)$this->now->format('H') < 6) {
+        if ((int)$this->now->format('H') < 7) {
             $this->now->sub(new DateInterval('P1D'));
         }
     }
@@ -114,12 +115,14 @@ class ApodProvider
      */
     private function getResponse()
     {
+        $query = array_filter([
+            'api_key' => self::API_KEY,
+//            'date'    => $this->now->format('Y-m-d'),
+            'hd'      => true,
+            'date'    => $this->now ? $this->now->format('Y-m-d') : null,
+        ]);
         return $this->apodClient->get(self::URL, [
-            'query' => [
-                'api_key' => self::API_KEY,
-                'date'    => $this->now->format('Y-m-d'),
-                'hd'      => true,
-            ],
+            'query' => $query,
         ]);
     }
 }
