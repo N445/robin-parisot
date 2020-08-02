@@ -40,7 +40,6 @@ liip_imagine:
             filters:
                 relative_resize:
                     widen: 350
-
         og_facebook:
             filters:
                 thumbnail:
