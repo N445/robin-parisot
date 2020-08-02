@@ -95,8 +95,6 @@ class ApodProvider
     public function rawToObject()
     {
         $response = json_decode($this->getResponse()->getBody()->getContents(), true);
-        dump($response);
-        die;
 
         $date = DateTime::createFromFormat('Y-m-d', $response['date']);
         return (new Apod())
@@ -117,11 +115,11 @@ class ApodProvider
     private function getResponse()
     {
         return $this->apodClient->get(self::URL, [
-            'query' => dump([
+            'query' => [
                 'api_key' => self::API_KEY,
                 'date'    => $this->now->format('Y-m-d'),
                 'hd'      => true,
-            ]),
+            ],
         ]);
     }
 }
