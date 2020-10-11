@@ -6,6 +6,9 @@ use App\Repository\Tools\Rss\RssFeedRepository;
 use App\Service\Tools\Rss\RssParser;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
@@ -32,13 +35,13 @@ class AdminController extends AbstractController
      */
     public function __construct(
         RssParser $rssParser,
-    RssFeedRepository $rssFeedRepository,
-    EntityManagerInterface $em
+        RssFeedRepository $rssFeedRepository,
+        EntityManagerInterface $em
     )
     {
-        $this->rssParser = $rssParser;
+        $this->rssParser         = $rssParser;
         $this->rssFeedRepository = $rssFeedRepository;
-        $this->em = $em;
+        $this->em                = $em;
     }
 
 
@@ -51,4 +54,19 @@ class AdminController extends AbstractController
             'current_group' => 'ADMIN',
         ]);
     }
+
+    /**
+     * Création de la route "goaccess"
+     * @Route("/goaccess", name="GOACCESS", methods={"GET"})
+     * @param Request $request
+     * @return Response
+     */
+    public function goaccess(Request $request, KernelInterface $kernel)
+    {
+        return $this->render('admin/goaccess.html.twig', [
+            'goaccessContent' => file_get_contents($kernel->getProjectDir() . '/var/goaccess/index.html'),
+        ]);
+    }
+
+
 }
