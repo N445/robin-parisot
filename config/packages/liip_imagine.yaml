@@ -1,47 +1,51 @@
 # See dos how to configure the bundle: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
 liip_imagine:
-    # valid drivers options include "gd" or "gmagick" or "imagick"
-    driver: "gd"
-    filter_sets:
-        bandeau:
-            filters:
-                thumbnail:
-                    size: [1920, 500]
-                    mode: outbound
-        bandeau_sm:
-            filters:
-                thumbnail:
-                    size: [576, 500]
-                    mode: outbound
-        bandeau_md:
-            filters:
-                thumbnail:
-                    size: [768, 500]
-                    mode: outbound
-        bandeau_lg:
-            filters:
-                thumbnail:
-                    size: [992, 500]
-                    mode: outbound
-        bandeau_vlg:
-            filters:
-                thumbnail:
-                    size: [1200, 500]
-                    mode: outbound
-        admin_thumbnail_small:
-            filters:
-                relative_resize:
-                    widen: 100
-        admin_thumbnail_medium:
-            filters:
-                relative_resize:
-                    widen: 250
-        admin_thumbnail_large:
-            filters:
-                relative_resize:
-                    widen: 350
-        og_facebook:
-            filters:
-                thumbnail:
-                    size: [530, 280]
-                    mode: outbound
+  # valid drivers options include "gd" or "gmagick" or "imagick"
+  driver: "gd"
+  filter_sets:
+    skill:
+      filters:
+        relative_resize:
+          widen: 100
+    bandeau:
+      filters:
+        thumbnail:
+          size: [ 1920, 500 ]
+          mode: outbound
+    bandeau_sm:
+      filters:
+        thumbnail:
+          size: [ 576, 500 ]
+          mode: outbound
+    bandeau_md:
+      filters:
+        thumbnail:
+          size: [ 768, 500 ]
+          mode: outbound
+    bandeau_lg:
+      filters:
+        thumbnail:
+          size: [ 992, 500 ]
+          mode: outbound
+    bandeau_vlg:
+      filters:
+        thumbnail:
+          size: [ 1200, 500 ]
+          mode: outbound
+    admin_thumbnail_small:
+      filters:
+        relative_resize:
+          widen: 100
+    admin_thumbnail_medium:
+      filters:
+        relative_resize:
+          widen: 250
+    admin_thumbnail_large:
+      filters:
+        relative_resize:
+          widen: 350
+    og_facebook:
+      filters:
+        thumbnail:
+          size: [ 530, 280 ]
+          mode: outbound
