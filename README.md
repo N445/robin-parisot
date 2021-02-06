@@ -13,15 +13,15 @@ Entités:
     - Image
     - Lien
     - Note
-- Contact
-    - nom
-    - prenom
-    - email
-    - objet
-    - message
 - News
     - Titre
     - Résumé
     - Contenu
     - url
     - image
+- Contact
+    - nom
+    - prenom
+    - email
+    - objet
+    - message

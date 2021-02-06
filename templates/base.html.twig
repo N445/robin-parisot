@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Robin PARISOT - Développeur WEB{% endblock %}</title>
+        {{ encore_entry_link_tags('css/app') }}
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+    {% include 'parts/navigation.html.twig' %}
+        {% block body %}{% endblock %}
+    {{ encore_entry_script_tags('js/app') }}
+    </body>
+</html>
