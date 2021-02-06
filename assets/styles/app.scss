@@ -1,6 +1,18 @@
+@import "override-bootstrap";
 @import "~bootstrap";
+@import "components/callout";
 
 .toto {
   background-image: url('../images/pAGQ5EExiaQ.jpg');
   background-size:  cover;
+}
+
+label {
+  &.required {
+    &:after {
+      content:      "*";
+      color:        $danger;
+      margin-left: 10px;
+    }
+  }
 }

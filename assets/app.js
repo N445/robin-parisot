@@ -7,9 +7,20 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 // start the Stimulus application
+// require jQuery normally
+const $ = require('jquery');
+
+// create global $ and jQuery variables
+global.$ = global.jQuery = $;
+
+
 require('bootstrap')
 require('@popperjs/core')
 require('@fortawesome/fontawesome-free/js/all.min')
 
 // import './bootstrap';
 console.log('app')
+
+$.each($('.toast'),function () {
+    $(this).toast('show')
+})
