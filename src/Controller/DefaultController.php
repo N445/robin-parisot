@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Contact\Contact;
 use App\Form\Contact\ContactType;
+use App\Repository\Skill\SkillRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,10 +30,12 @@ class DefaultController extends AbstractController
      * @Route("/skills", name="SKILLS", methods={"GET"})
      * @return Response
      */
-    public function skills()
+    public function skills(SkillRepository $skillRepository)
     {
+        dump($skillRepository->getAllForFront());
         return $this->render('default/skills.html.twig', [
             self::PAGE => 'skills',
+            'skills'   => $skillRepository->getAllForFront(),
         ]);
     }
 
@@ -91,8 +94,8 @@ class DefaultController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', [
-                'title'=>'Contact',
-                'text'=>'J\'ai bien reçu votre message, merci.'
+                'title' => 'ContactFixtures',
+                'text'  => 'J\'ai bien reçu votre message, merci.',
             ]);
             return $this->redirectToRoute('CONTACT');
         }
