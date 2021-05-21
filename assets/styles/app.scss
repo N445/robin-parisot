@@ -1,18 +1,67 @@
+$main: #FF5714;
+$secondary: #32908F;
+$dark: #242325;
+
+$weightThin: 100;
+$weightExtraLight: 200;
+$weightLight: 300;
+$weightRegular: 400;
+$weightMedium: 500;
+$weightSemiBold: 600;
+$weightBold: 700;
+$weightExtraBold: 800;
+$weightBlack: 900;
+
+
 @import "override-bootstrap";
 @import "~bootstrap";
 @import "components/callout";
+@import "components/skills";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-.toto {
-  background-image: url('../images/pAGQ5EExiaQ.jpg');
-  background-size:  cover;
+
+
+h1 {
+  font-family: Ubuntu;
 }
 
-label {
-  &.required {
-    &:after {
-      content:      "*";
-      color:        $danger;
-      margin-left: 10px;
+.skew-left {
+  transform: skewY(5deg);
+
+  .content {
+    transform: skewY(-5deg);
+  }
+}
+
+.skew-right {
+  transform: skewY(-5deg);
+
+  .content {
+    transform: skewY(5deg);
+  }
+}
+
+#banner {
+  height: 700px;
+  background-color: $main;
+  background: linear-gradient(to right, $main, $dark, $secondary);
+  transform: skewY(-5deg) translateY(-180px);
+  transform-origin: top right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .text {
+    transform: skewY(5deg);
+    text-align: center;
+    color: white;
+
+    h1 {
+      font-size: 80px;
+
+      small {
+        font-weight: $weightLight;
+      }
     }
   }
 }

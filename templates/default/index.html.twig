@@ -1,16 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <img src="{{ asset('build/images/GnP7PjxGeHs.jpg') }}" alt="dfssfd" class="img-fluid">
-        </div>
-        <div class="col-md-3">
-            <div class="toto h-100"></div>
-        </div>
-
-        <i class="fab fa-500px"></i>
-    </div>
-</div>
+    {% include 'includes/homepage/banner.html.twig' %}
+    {% include 'includes/homepage/skills.html.twig' %}
 {% endblock %}

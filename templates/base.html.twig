@@ -9,8 +9,6 @@
         {% block javascripts %}{% endblock %}
     </head>
     <body>
-    {% include 'parts/flash-message.html.twig' %}
-    {% include 'parts/navigation.html.twig' %}
         {% block body %}{% endblock %}
     {{ encore_entry_script_tags('js/app') }}
     </body>

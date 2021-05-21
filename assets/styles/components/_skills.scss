@@ -1,0 +1,35 @@
+
+$phpmain: #8892bf;
+$phpsecondary: #4f5b93;
+
+
+.skill {
+  position: relative;
+  background-color: rgba($main, .3);
+  background: linear-gradient(to right, rgba($main, .3), rgba(darken($main, 20), .3));
+  border: 1px solid rgba($main, .5);
+  box-shadow: $box-shadow;
+  //border-radius: 50px;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.php {
+    background-color: rgba($phpmain, .3);
+    border: 1px solid rgba($phpmain, .5);
+    background: linear-gradient(to right, rgba($phpmain, .3), rgba($phpsecondary, .3));
+  }
+}
