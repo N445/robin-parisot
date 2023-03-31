@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Sui Generis Rg';
+    src: url('SuiGenerisRg-Regular.eot');
+    src: url('SuiGenerisRg-Regular.eot?#iefix') format('embedded-opentype'),
+        url('SuiGenerisRg-Regular.woff2') format('woff2'),
+        url('SuiGenerisRg-Regular.woff') format('woff'),
+        url('SuiGenerisRg-Regular.ttf') format('truetype'),
+        url('SuiGenerisRg-Regular.svg#SuiGenerisRg-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
