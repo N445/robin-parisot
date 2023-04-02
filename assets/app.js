@@ -10,4 +10,13 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
-import 'bootstrap';
+import {ScrollSpy} from 'bootstrap';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
+
+
+const scrollSpy = new ScrollSpy(document.body, {
+    target: '#main-navbar',
+})

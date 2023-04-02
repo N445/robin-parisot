@@ -1,0 +1,184 @@
+.custom-navbar-container {
+  position : fixed;
+  top      : 0;
+  @include make-col(2);
+  height   : 100vh;
+  z-index  : 500;
+  padding  : 50px 0 50px 50px;
+
+  @include media-breakpoint-down(lg) {
+    padding : 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    width          : 100%;
+    height         : auto;
+    flex-direction : row;
+    //position:       sticky;
+  }
+
+  .custom-navbar {
+    height           : 100%;
+    overflow         : auto;
+    border-radius    : $custom-radius 0 $custom-radius 0;
+    align-items      : flex-start;
+    padding          : 50px 0 10px 0;
+    background-color : rgba(lighten($primary-dark, 10), .8);
+    backdrop-filter  : blur(10px);
+    display          : flex;
+    flex-direction   : column;
+    //box-shadow       : $box-shadow;
+    box-shadow       : 0 7px 13px rgba(0, 0, 0, 0.3);
+    border           : 1px solid rgba($primary-dark, .2);
+
+    @include customScrollBar;
+
+    @include media-breakpoint-down(md) {
+      padding        : 5px;
+      width          : 100%;
+      height         : auto;
+      flex-direction : row;
+      position       : sticky;
+    }
+
+    .logo {
+      width : 100%;
+
+      @include media-breakpoint-down(md) {
+        display : none;
+      }
+
+      .navbar-brand {
+        margin-bottom : 20px;
+        text-align    : center;
+
+        img {
+          width     : 50%;
+          max-width : 200px;
+          @include media-breakpoint-only(sm) {
+            max-width : 100px;
+          }
+        }
+      }
+    }
+
+    .main-navbar {
+      width : 100%;
+
+      ul {
+        flex-direction : column;
+
+        li {
+          text-align : center;
+          flex-grow  : 1;
+
+          a {
+            font-size      : 16px;
+            text-transform : uppercase;
+            color          : white;
+            font-weight    : bold;
+
+            &.nav-link {
+              color      : white;
+              transition : .2s all ease-in-out;
+              //border-radius : $custom-radius;
+              //border     : 1px solid rgba($primary-dark, .6);
+              position   : relative;
+
+              &:after {
+                content          : '';
+                position         : absolute;
+                bottom           : 0;
+                left             : 0;
+                width            : 100%;
+                height           : 1px;
+                background-color : rgba(218, 218, 218, 0.44);
+
+
+              }
+
+              &:hover {
+                color : white;
+
+                &:before {
+                  opacity : 1;
+                  width   : 20px;
+                }
+              }
+
+
+              &.active, &:focus {
+                color : white;
+
+                &:before {
+                  opacity : 1;
+                  width   : 30px;
+                }
+              }
+
+
+              &:before {
+                content          : '';
+                position         : absolute;
+                left             : 20px;
+                top              : 50%;
+                transform        : translateY(-50%);
+                width            : 0;
+                height           : 7px;
+                background-color : $secondary;
+                border-radius    : 10px 0;
+                transition       : .2s all ease-in-out;
+                opacity          : 0;
+              }
+            }
+          }
+
+          &:last-child {
+            margin-bottom : 0;
+
+            a.nav-link {
+              &:after {
+                content : none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .secondary-navbar {
+      width : 100%;
+      @include media-breakpoint-down(md) {
+        display : none;
+      }
+
+      ul {
+        flex-direction : row;
+
+        i {
+          font-size : 40px;
+        }
+      }
+    }
+
+    .bottom {
+      width : 100%;
+      @include media-breakpoint-down(md) {
+        display : none;
+      }
+
+      .logo-sc {
+        text-align : center;
+
+        @include media-breakpoint-down(md) {
+          display : none;
+        }
+
+        img {
+          width : 20%;
+        }
+      }
+    }
+
+  }
+}
