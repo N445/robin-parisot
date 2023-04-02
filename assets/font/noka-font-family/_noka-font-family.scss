@@ -1,11 +1,6 @@
 @font-face {
     font-family: 'Noka Trial';
-    src: url('NokaTrial-Bold.eot');
-    src: url('NokaTrial-Bold.eot?#iefix') format('embedded-opentype'),
-        url('NokaTrial-Bold.woff2') format('woff2'),
-        url('NokaTrial-Bold.woff') format('woff'),
-        url('NokaTrial-Bold.ttf') format('truetype'),
-        url('NokaTrial-Bold.svg#NokaTrial-Bold') format('svg');
+    src: url("NokaTrial-Bold.otf") format("opentype");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -13,12 +8,7 @@
 
 @font-face {
     font-family: 'Noka Trial';
-    src: url('NokaTrial-Black.eot');
-    src: url('NokaTrial-Black.eot?#iefix') format('embedded-opentype'),
-        url('NokaTrial-Black.woff2') format('woff2'),
-        url('NokaTrial-Black.woff') format('woff'),
-        url('NokaTrial-Black.ttf') format('truetype'),
-        url('NokaTrial-Black.svg#NokaTrial-Black') format('svg');
+    src: url("NokaTrial-Black.otf") format("opentype");
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -26,12 +16,7 @@
 
 @font-face {
     font-family: 'Noka Trial';
-    src: url('NokaTrial-Semibold.eot');
-    src: url('NokaTrial-Semibold.eot?#iefix') format('embedded-opentype'),
-        url('NokaTrial-Semibold.woff2') format('woff2'),
-        url('NokaTrial-Semibold.woff') format('woff'),
-        url('NokaTrial-Semibold.ttf') format('truetype'),
-        url('NokaTrial-Semibold.svg#NokaTrial-Semibold') format('svg');
+    src: url("NokaTrial-Semibold.otf") format("opentype");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -39,12 +24,7 @@
 
 @font-face {
     font-family: 'Noka Trial';
-    src: url('NokaTrial-Hairline.eot');
-    src: url('NokaTrial-Hairline.eot?#iefix') format('embedded-opentype'),
-        url('NokaTrial-Hairline.woff2') format('woff2'),
-        url('NokaTrial-Hairline.woff') format('woff'),
-        url('NokaTrial-Hairline.ttf') format('truetype'),
-        url('NokaTrial-Hairline.svg#NokaTrial-Hairline') format('svg');
+    src: url("NokaTrial-Hairline.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -52,12 +32,7 @@
 
 @font-face {
     font-family: 'Noka Trial';
-    src: url('NokaTrial-Medium.eot');
-    src: url('NokaTrial-Medium.eot?#iefix') format('embedded-opentype'),
-        url('NokaTrial-Medium.woff2') format('woff2'),
-        url('NokaTrial-Medium.woff') format('woff'),
-        url('NokaTrial-Medium.ttf') format('truetype'),
-        url('NokaTrial-Medium.svg#NokaTrial-Medium') format('svg');
+    src: url("NokaTrial-Medium.otf") format("opentype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -65,12 +40,7 @@
 
 @font-face {
     font-family: 'Noka Trial';
-    src: url('NokaTrial-Light.eot');
-    src: url('NokaTrial-Light.eot?#iefix') format('embedded-opentype'),
-        url('NokaTrial-Light.woff2') format('woff2'),
-        url('NokaTrial-Light.woff') format('woff'),
-        url('NokaTrial-Light.ttf') format('truetype'),
-        url('NokaTrial-Light.svg#NokaTrial-Light') format('svg');
+    src: url("NokaTrial-Light.otf") format("opentype");
     font-weight: 300;
     font-style: normal;
     font-display: swap;

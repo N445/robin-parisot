@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dicta dignissimos doloremque dolores eius ex
-            impedit inventore natus, omnis, quidem sunt tenetur totam veniam. Alias error facere qui vel voluptatum.
-        </p>
-    </div>
+    {% include 'homepage/parts/_top-banner.html.twig' %}
+    {% include 'homepage/parts/_services.html.twig' %}
+    {% include 'homepage/parts/_about.html.twig' %}
+{#    {% include 'homepage/parts/_blog.html.twig' %}#}
+    {% include 'homepage/parts/_contact.html.twig' %}
 {% endblock %}

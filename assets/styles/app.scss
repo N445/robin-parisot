@@ -1,8 +1,86 @@
 @import "../font/noka-font-family/noka-font-family";
 @import "../font/sui_generis/sui_generis";
-@import "bootstrap";
+@import "../font/magistral/font-magistral";
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/brands";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/v4-shims";
+@import "parts/colors";
+@import "parts/bootstrap";
+@import "parts/variables";
+@import "parts/mixins";
+@import "parts/navbar";
+
+@import "pages/homepage";
 
 * {
-  font-family: 'Noka Trial', Arial, serif;
-  font-weight: 500;
+  //font-family : 'Noka Trial', Arial, serif;
+  font-family : "Magistral Book", Arial, serif;
+  font-weight : 500;
+}
+
+body {
+  background-color : #0A0A0A;
+  @include customScrollBar;
+
+}
+
+.main-title {
+  text-transform : uppercase;
+  position       : relative;
+  font-size      : 50px;
+  font-family    : 'Sui Generis Rg', Arial, serif;
+
+  &:after {
+    content          : '';
+    position         : absolute;
+    left             : 0;
+    bottom           : 0;
+    width            : 200px;
+    height           : 1px;
+    background-color : $secondary;
+  }
+
+  &.text-end {
+    &:after {
+      left  : auto;
+      right : 0;
+    }
+  }
+
+  &.text-center {
+    &:after {
+      left      : 50%;
+      transform : translateX(-50%);
+    }
+  }
+}
+
+.main-btn {
+  background-color : $secondary;
+  padding          : 10px 80px;
+  border-radius    : $custom-radius-sm 0;
+  box-shadow       : 0 0 6px $secondary;
+  border           : 3px solid $secondary;
+  transition       : .2s all ease-in-out;
+
+  &:hover {
+    background-color : lighten($secondary, 5);
+    box-shadow       : 0 0 10px $secondary;
+  }
+}
+
+.double-bar {
+  &-primary {
+    fill : $primary;
+  }
+
+  &-secondary {
+    fill : $secondary;
+  }
+
+  &-flipped {
+    transform : scaleX(-1);
+  }
 }
