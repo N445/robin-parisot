@@ -17,13 +17,6 @@ class HomepageController extends AbstractController
         ActualityRepository    $actualityRepository
     ): Response
     {
-        $contact = new Contact();
-        $form = $this->createForm(ContactType::class, $contact);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-return $this->redirectToRoute('APP_HOMEPAGE');
-        }
-
         return $this->render('homepage/index.html.twig', [
             'actualities' => $actualityRepository->getPaginated(limit: 3),
             'contact' => new Contact(),

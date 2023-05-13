@@ -16,9 +16,9 @@
             </p>
         </div>
     {% else %}
-
         {{ form_start(form,{
             attr: {
+                'autocomplete': 'off',
                 'novalidate': true,
                 'data-action': 'live#action',
                 'data-action-name': 'prevent|save',
