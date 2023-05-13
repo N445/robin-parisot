@@ -2,6 +2,7 @@ $hamburger-types       : (collapse);
 $hamburger-layer-color : white;
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
+
 .custom-navbar-container {
   position : fixed;
   top      : 0;
@@ -72,8 +73,6 @@ $hamburger-layer-color : white;
 
     .main-navbar {
       width : 100%;
-
-
       @include media-breakpoint-down(xl) {
         .navbar-toggler-container {
           display         : flex;
@@ -91,7 +90,6 @@ $hamburger-layer-color : white;
           }
         }
       }
-
       ul {
         flex-direction : column;
 

@@ -24,10 +24,17 @@
 </head>
 <body>
 {% include 'parts/_navigation.html.twig' %}
+
+<div class="container-fluid">
+    <div class="row justify-content-end">
+        <div class="col-md-10">
+        </div>
+    </div>
+</div>
+
 {% block body %}{% endblock %}
 
 {% include 'parts/_footer.html.twig' %}
 {% include 'parts/_analysis.html.twig' %}
-
 </body>
 </html>

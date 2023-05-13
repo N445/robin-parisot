@@ -14,7 +14,6 @@
 @import "parts/navbar";
 @import "parts/actuality-card";
 
-
 * {
   //font-family : 'Noka Trial', Arial, serif;
   font-family : "Magistral Book", Arial, serif;
@@ -36,6 +35,7 @@ body {
   font-size      : 50px;
   font-family    : 'Sui Generis Rg', Arial, serif;
   color          : white;
+
 
   &:after {
     content          : '';

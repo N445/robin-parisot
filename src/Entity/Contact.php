@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Validator as AppAssert;
 
+
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
@@ -31,6 +32,7 @@ class Contact
 
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\NotBlank]
+
     private ?string $message = null;
 
     #[ORM\Column]
