@@ -1,9 +1,67 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% include 'homepage/parts/_top-banner.html.twig' %}
-    {% include 'homepage/parts/_services.html.twig' %}
-    {% include 'homepage/parts/_about.html.twig' %}
-{#    {% include 'homepage/parts/_blog.html.twig' %}#}
-    {% include 'homepage/parts/_contact.html.twig' %}
+    <div data-bs-spy="scroll" data-bs-target="#main-navbar">
+        <div id="top-banner">
+            {% include 'parts/_double-bar-svg.html.twig' with {classes:'double-bar-primary'} %}
+            {% include 'parts/_double-bar-svg.html.twig' with {classes:'double-bar-secondary double-bar-flipped'} %}
+            <section id="top-banner-content">
+                <div class="container-fluid">
+                    <div class="row justify-content-end">
+                        <div class="col-xl-9 col-xxl-10">
+                            {% include 'homepage/parts/_top-banner.html.twig' %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section id="services">
+            <div class="container-fluid">
+                <div class="row justify-content-end">
+                    <div class="col-xl-9 col-xxl-10">
+                        {% include 'homepage/parts/_services.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container-fluid">
+                <div class="row justify-content-end">
+                    <div class="col-xl-9 col-xxl-10">
+                        {% include 'homepage/parts/_about.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="blog">
+            <div class="container-fluid">
+                <div class="row justify-content-end">
+                    <div class="col-xl-9 col-xxl-10">
+                        {% include 'homepage/parts/_actualities.html.twig' %}
+                    </div>
+                </div>
+            </div>{% include 'parts/_double-bar-svg.html.twig' with {classes:'double-bar-primary double-bar-flipped'} %}
+        </section>
+        <section id="contact">
+            {% include 'parts/_double-bar-svg.html.twig' with {classes:'double-bar-secondary double-bar-flipped'} %}
+            <div class="container-fluid">
+                <div class="row justify-content-end">
+                    <div class="col-xl-9 col-xxl-10">
+                        {% include 'homepage/parts/_contact.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('homepage') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('homepage') }}
 {% endblock %}

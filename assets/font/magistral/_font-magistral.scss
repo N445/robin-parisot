@@ -22,17 +22,17 @@
 //    font-style: italic;
 //}
 //
-//@font-face {
-//    font-family: 'Magistral Extra';
-//    src: url('Magistral-ExtraBold.eot');
-//    src: local('Magistral Extra Bold'), local('Magistral-ExtraBold'),
-//        url('Magistral-ExtraBold.eot?#iefix') format('embedded-opentype'),
-//        url('Magistral-ExtraBold.woff2') format('woff2'),
-//        url('Magistral-ExtraBold.woff') format('woff'),
-//        url('Magistral-ExtraBold.ttf') format('truetype');
-//    font-weight: 800;
-//    font-style: normal;
-//}
+@font-face {
+    font-family: 'Magistral Extra';
+    src: url('Magistral-ExtraBold.eot');
+    src: local('Magistral Extra Bold'), local('Magistral-ExtraBold'),
+        url('Magistral-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('Magistral-ExtraBold.woff2') format('woff2'),
+        url('Magistral-ExtraBold.woff') format('woff'),
+        url('Magistral-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
 
 //@font-face {
 //    font-family: 'Magistral';
@@ -71,18 +71,18 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Magistral';
-    src: url('Magistral-Bold.eot');
-    src: local('Magistral Bold'), local('Magistral-Bold'),
-        url('Magistral-Bold.eot?#iefix') format('embedded-opentype'),
-        url('Magistral-Bold.woff2') format('woff2'),
-        url('Magistral-Bold.woff') format('woff'),
-        url('Magistral-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
+//@font-face {
+//    font-family: 'Magistral';
+//    src: url('Magistral-Bold.eot');
+//    src: local('Magistral Bold'), local('Magistral-Bold'),
+//        url('Magistral-Bold.eot?#iefix') format('embedded-opentype'),
+//        url('Magistral-Bold.woff2') format('woff2'),
+//        url('Magistral-Bold.woff') format('woff'),
+//        url('Magistral-Bold.ttf') format('truetype');
+//    font-weight: bold;
+//    font-style: normal;
+//    font-display: swap;
+//}
 
 //@font-face {
 //    font-family: 'Magistral';

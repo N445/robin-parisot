@@ -1,0 +1,64 @@
+{% import 'macro/_macros.html.twig' as macros %}
+
+<div {{ attributes.add(stimulus_controller('contact')) }}>
+    {% if isSuccessful %}
+        <div class="success-message">
+            <div class="success-checkmark">
+                <div class="check-icon">
+                    <span class="icon-line line-tip"></span>
+                    <span class="icon-line line-long"></span>
+                    <div class="icon-circle"></div>
+                    <div class="icon-fix"></div>
+                </div>
+            </div>
+            <p>
+                J'ai bien reçu votre message ! Je vous recontacterais sous peu.
+            </p>
+        </div>
+    {% else %}
+
+        {{ form_start(form,{
+            attr: {
+                'novalidate': true,
+                'data-action': 'live#action',
+                'data-action-name': 'prevent|save',
+                'data-model':"on(change)|*"
+            }
+        }) }}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    {{ form_row(form.firstname,{
+                        attr:{
+                            'data-model':'norender|contact[firstname]'
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    {{ form_row(form.lastname) }}
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.email) }}
+        </div>
+        <div class="mb-5">
+            {{ form_row(form.message) }}
+        </div>
+        <div class="d-none">
+            {{ form_row(form.captcha,{
+                attr:{
+                    'data-model':'norender|contact[captcha]'
+                }
+            }) }}
+        </div>
+        <div class="d-flex justify-content-center">
+            {{ macros.mainBtnAnimated('Envoyer') }}
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+        <script src="https://www.google.com/recaptcha/api.js?render={{ site_key }}"></script>
+    {% endif %}
+</div>

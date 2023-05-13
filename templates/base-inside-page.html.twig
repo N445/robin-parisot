@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+     <main id="inside-page">
+         <div class="container-fluid">
+             <div class="row justify-content-end">
+                 <div class="col-xl-9 col-xxl-10">
+                     <div class="container">
+                         <header>
+                             {% include 'parts/_double-bar-svg.html.twig' with {classes:'double-bar-primary'} %}
+                             <a href="{{ path('APP_HOMEPAGE') }}">
+                                 <img src="{{ asset('logo/logo-dark-rectangle.svg') }}" alt="Robin PARISOT">
+                             </a>
+                         </header>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="container-fluid">
+             <div class="row justify-content-end">
+                 <div class="col-xl-9 col-xxl-10">
+                     <div class="container">
+                         <div class="card card-blured text-bg-primary-dark bg-opacity-50 my-5 py-5 main-card">
+                             <div class="card-body">
+                                 {% block body_content %} {% endblock %}
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </main>
+ {% endblock %}

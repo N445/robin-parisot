@@ -1,0 +1,5 @@
+{% macro tag(tag) %}
+    <a href="{{ path('APP_ACTUALITIES',{tag:tag.name}) }}" class="badge text-decoration-none" style="background-color: {{ tag.color }}">
+        {{ tag.name }}
+    </a>
+{% endmacro %}

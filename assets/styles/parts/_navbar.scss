@@ -1,3 +1,7 @@
+$hamburger-types       : (collapse);
+$hamburger-layer-color : white;
+@import "~hamburgers/_sass/hamburgers/hamburgers";
+
 .custom-navbar-container {
   position : fixed;
   top      : 0;
@@ -6,15 +10,18 @@
   z-index  : 500;
   padding  : 50px 0 50px 50px;
 
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-only(xl) {
+    @include make-col(3);
+  }
+
+  @include media-breakpoint-down(xl) {
     padding : 0;
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(xl) {
     width          : 100%;
     height         : auto;
     flex-direction : row;
-    //position:       sticky;
   }
 
   .custom-navbar {
@@ -33,18 +40,19 @@
 
     @include customScrollBar;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(xl) {
       padding        : 5px;
       width          : 100%;
       height         : auto;
       flex-direction : row;
       position       : sticky;
+      border-radius  : 0;
     }
 
     .logo {
       width : 100%;
 
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(xl) {
         display : none;
       }
 
@@ -64,6 +72,25 @@
 
     .main-navbar {
       width : 100%;
+
+
+      @include media-breakpoint-down(xl) {
+        .navbar-toggler-container {
+          display         : flex;
+          justify-content : end;
+          width           : 100%;
+        }
+
+        .navbar-toggler {
+          display         : flex;
+          justify-content : center;
+          align-items     : center;
+
+          &:focus {
+            box-shadow : none;
+          }
+        }
+      }
 
       ul {
         flex-direction : column;
@@ -120,7 +147,7 @@
               &:before {
                 content          : '';
                 position         : absolute;
-                left             : 20px;
+                left             : 0;
                 top              : 50%;
                 transform        : translateY(-50%);
                 width            : 0;
@@ -148,7 +175,7 @@
 
     .secondary-navbar {
       width : 100%;
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(xl) {
         display : none;
       }
 
@@ -160,25 +187,5 @@
         }
       }
     }
-
-    .bottom {
-      width : 100%;
-      @include media-breakpoint-down(md) {
-        display : none;
-      }
-
-      .logo-sc {
-        text-align : center;
-
-        @include media-breakpoint-down(md) {
-          display : none;
-        }
-
-        img {
-          width : 20%;
-        }
-      }
-    }
-
   }
 }

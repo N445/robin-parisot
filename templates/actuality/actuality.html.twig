@@ -1,0 +1,86 @@
+{% import 'macro/_actuality.html.twig' as actualityMacro %}
+{% import 'macro/_tag.html.twig' as tagMacro %}
+{% import 'macro/_macros.html.twig' as macros %}
+
+{% extends 'base-inside-page.html.twig' %}
+
+{% block body_content %}
+
+    <div class="d-flex mb-4 {{ actuality_prev_next.previous is null ?'justify-content-end':'justify-content-between' }}">
+        {% if actuality_prev_next.previous %}
+            <a href="{{ path('APP_ACTUALITY', {'id': actuality_prev_next.previous.id}) }}"
+               class="btn btn-outline-primary-light btn-rounded">
+                Article précédent
+            </a>
+        {% endif %}
+
+        {% if actuality_prev_next.next %}
+            <a href="{{ path('APP_ACTUALITY', {'id': actuality_prev_next.next.id}) }}"
+               class="btn btn-outline-secondary btn-rounded">
+                Article suivant
+            </a>
+        {% endif %}
+    </div>
+
+    {#        {{ dump(actuality_prev_next) }} #}
+
+    <div class="top-banner">
+
+
+        <div class="title-container">
+            <h1 class="main-title text-center">{{ actuality.title }}</h1>
+        </div>
+
+        <img src="{{ vich_uploader_asset(actuality) }}" alt="{{ actuality.title }}" class="img-fluid">
+        <div class="top-banner-bottom-left">
+            <div class="d-flex align-items-end">
+
+                {% set date = actuality.editedAt %}
+
+                <div class="actuality-date"
+                     data-actuality-date="{{ date|date('Y-m-d H:i:s') }}"
+                     title="{{ date|date('d/m/Y H:i') }}">
+                    {{ date|date('d/m/Y') }}
+                </div>
+                {% if actuality.isEdited %}
+                    {% set date = actuality.createdAt %}
+                    <span class="text-secondary ms-2 d-flex">- Créée
+                    <div class="actuality-date ms-1"
+                         data-actuality-date="{{ date|date('Y-m-d H:i:s') }}"
+                         title="{{ date|date('d/m/Y H:i') }}">
+                        {{ date|date('d/m/Y') }}
+                    </div>
+                    </span>
+                {% endif %}
+
+
+            </div>
+            {{ tagMacro.tag(actuality.mainTag) }}
+            <div class="tags mt-2">
+                {% for tag in actuality.subTags %}
+                    {{ tagMacro.tag(tag) }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="my-5">
+        {{ actuality.content|raw }}
+    </div>
+
+
+    <div class="text-center my-5">
+        {{ macros.mainBtnAnimated('Voir tout les articles',path('APP_ACTUALITIES')) }}
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('actuality') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('actuality') }}
+{% endblock %}

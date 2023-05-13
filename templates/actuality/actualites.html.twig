@@ -1,0 +1,27 @@
+{% import 'macro/_actuality.html.twig' as actualityMacro %}
+
+{% extends 'base-inside-page.html.twig' %}
+
+{% block body_content %}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+    {% for actuality in pagination %}
+        <div class="mb-5">
+            {{ actualityMacro.cardRow(actuality) }}
+        </div>
+    {% endfor %}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('actuality') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('actuality') }}
+{% endblock %}

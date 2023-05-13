@@ -1,0 +1,52 @@
+{% macro card(actuality) %}
+    <div class="card actuality-card">
+        <img src="{{ vich_uploader_asset(actuality)|imagine_filter('actuality_card') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            {% set date = actuality.editedAt %}
+
+            <p class="actuality-date"
+               data-actuality-date="{{ date|date('Y-m-d H:i:s') }}"
+               title="{{ date|date('d/m/Y H:i') }}">
+                {{ date|date('d/m/Y') }}
+            </p>
+            <h5 class="card-title">{{ actuality.title }}</h5>
+            <p class="card-text">{{ actuality.resume }}</p>
+        </div>
+        <div class="card-footer">
+            <a href="{{ path('APP_ACTUALITY', {'id': actuality.id}) }}" class="read-more">
+                Lire plus <i class="fa-solid fa-right-long"></i>
+            </a>
+        </div>
+    </div>
+{% endmacro %}
+
+
+{% macro cardRow(actuality) %}
+    <div class="card actuality-card actuality-card-row">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ vich_uploader_asset(actuality) }}" class="img-fluid" alt="{{ actuality.title }}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div class="top">
+                        {% set date = actuality.editedAt %}
+
+                        <p class="actuality-date"
+                           data-actuality-date="{{ date|date('Y-m-d H:i:s') }}"
+                           title="{{ date|date('d/m/Y H:i') }}">
+                            {{ date|date('d/m/Y') }}
+                        </p>
+                        <h5 class="card-title">{{ actuality.title }}</h5>
+                        <p class="card-text">{{ actuality.resume }}</p>
+                    </div>
+                    <div class="bottom">
+                        <a href="{{ path('APP_ACTUALITY', {'id': actuality.id}) }}" class="read-more">
+                            Lire plus <i class="fa-solid fa-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
