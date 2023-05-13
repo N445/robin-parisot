@@ -1,0 +1,35 @@
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
+
+twig:
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+fos_ck_editor:
+    base_path: "build/ckeditor"
+    js_path:   "build/ckeditor/ckeditor.js"
+    configs:
+        main_config:
+            language: fr
+            extraPlugins: ["codesnippet"]
+            codeSnippet_theme: "monokai_sublime"
+#            toolbar: full
+            toolbar: my_toolbar_1
+            height: 1000
+    toolbars:
+        configs:
+            my_toolbar_1: [
+                ['Source', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'],
+                ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'  ],
+                ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat'  ],
+                ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language'],
+                ['Link', 'Unlink', 'Anchor'],
+                ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'],
+                ['Styles', 'Format', 'Font', 'FontSize'],
+                ['TextColor', 'BGColor'],
+                ['Maximize', 'ShowBlocks'],
+                ['CodeSnippet'],
+
+            ]
+    plugins:
+        codesnippet:
+            path:     "build/ckeditor/plugins/codesnippet/" # with trailing slash
+            filename: "plugin.js"

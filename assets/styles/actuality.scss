@@ -1,0 +1,78 @@
+@import "parts/colors";
+@import "parts/variables";
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+@import "parts/actuality-card";
+
+@import "highlight.js/styles/monokai-sublime.css";
+
+
+.top-banner {
+  position      : relative;
+  border-radius : $custom-radius 0;
+  overflow      : hidden;
+  box-shadow    : $box-shadow;
+
+
+  img {
+    position   : absolute;
+    inset      : 0;
+    width      : 100%;
+    height     : 100%;
+    object-fit : cover;
+    z-index    : 1;
+  }
+
+  &:before {
+    content          : '';
+    position         : absolute;
+    z-index          : 10;
+    inset            : 0;
+    background-image : linear-gradient(to bottom, rgba($primary-dark, .8), transparent);
+  }
+
+  &:after {
+    content          : '';
+    position         : absolute;
+    z-index          : 10;
+    inset            : 0;
+    background-image : linear-gradient(to top, rgba($black, .5), transparent);
+  }
+
+  .title-container {
+    position : relative;
+    inset    : 0;
+    width    : 100%;
+    padding  : map-get($spacers, 5) map-get($spacers, 3);
+    z-index  : 20;
+    height   : 300px;
+
+    //h1 {
+    //  position : sticky;
+    //  top      : 10px;
+    //}
+  }
+
+  &-bottom-left {
+    position : relative;
+    bottom   : 0;
+    left     : 0;
+    z-index  : 20;
+    padding  : 10px;
+
+    .actuality-date {
+      color       : $secondary;
+      font-weight : bold;
+    }
+  }
+}
+
+
+

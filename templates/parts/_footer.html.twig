@@ -1,13 +1,18 @@
 <footer class="bg-black text-white py-5">
     <div class="container-fluid">
         <div class="row justify-content-end">
-            <div class="col-md-10">
+            <div class="col-lg-10">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="d-flex align-items-center flex-column">
                             <p class="mb-0">© {{ 'now'|date('Y')}} Robin Parisot</p>
                             <br>
-                            <p class="mb-0">Mentions légale | Politique de confidentialités</p>
+                            <p class="mb-0">
+                                <a href="{{ path('APP_LEGAL_MENTION') }}">
+                                    Mentions légale
+                                </a>
+{#                                | Politique de confidentialités#}
+                            </p>
                         </div>
                     </div>
                 </div>

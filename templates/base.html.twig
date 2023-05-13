@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark">
-<head>
+<html data-bs-theme="dark" {{ sonata_seo_html_attributes() }} lang="fr">
+<head {{ sonata_seo_head_attributes() }}>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="UTF-8">
-    <title>{% block title %}Robin PARISOT - Développeur WEB Fullstack{% endblock %}</title>
+
+    {#    <title>{% block title %}Robin PARISOT - Développeur WEB Fullstack{% endblock %}</title>#}
+    {{ sonata_seo_title() }}
+    {{ sonata_seo_metadatas() }}
+    {{ sonata_seo_link_canonical() }}
+    {{ sonata_seo_lang_alternates() }}
+
     {% include 'parts/_favicon.html.twig' %}
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
@@ -26,5 +35,6 @@
 {% block body %}{% endblock %}
 
 {% include 'parts/_footer.html.twig' %}
+{% include 'parts/_analysis.html.twig' %}
 </body>
 </html>

@@ -1,0 +1,529 @@
+@import "../font/noka-font-family/noka-font-family";
+@import "../font/sui_generis/sui_generis";
+@import "../font/magistral/font-magistral";
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/brands";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/v4-shims";
+@import "parts/colors";
+@import "parts/bootstrap-base";
+@import "parts/bootstrap-parts";
+@import "parts/variables";
+@import "parts/mixins";
+@import "parts/navbar";
+@import "parts/actuality-card";
+
+$section-space : 200px;
+
+
+#top-banner {
+  position : relative;
+  overflow : hidden;
+
+  .double-bar {
+    position : absolute;
+    filter   : drop-shadow($box-shadow);
+
+    &-primary {
+      top     : -150px;
+      left    : 200px;
+      width   : 400px;
+      z-index : 10;
+      @include media-breakpoint-down(xl) {
+        width     : 300px;
+        top       : -150px;
+        left      : 0;
+        transform : translateX(-50%);
+      }
+      @include media-breakpoint-only(xl) {
+        left : -100px;
+      }
+    }
+
+    &-secondary {
+      bottom  : 0;
+      right   : -200px;
+      width   : 500px;
+      z-index : 10;
+      @include media-breakpoint-down(xl) {
+        width  : 400px;
+        bottom : -200px;
+      }
+      @include media-breakpoint-only(xl) {
+        width : 380px;
+      }
+    }
+  }
+
+  section {
+    &#top-banner-content {
+      background : transparent linear-gradient(179deg, #000000 0%, #8D05DD 100%) 0% 0% no-repeat padding-box;
+      @include angleBottomRight(200px);
+      @include media-breakpoint-down(md) {
+        @include angleBottomRight(100px);
+      }
+
+      .content {
+        display        : flex;
+        flex-direction : column;
+        align-items    : center;
+        position       : relative;
+        z-index        : 20;
+
+        img {
+          margin-bottom : 50px;
+        }
+
+        p {
+          font-size : 24px;
+        }
+      }
+    }
+  }
+
+}
+
+
+/* Animation du dégradé */
+@keyframes gradient-animation {
+  0% {
+    background-position : 0% 50%;
+  }
+  10% {
+    background-position : 10% 60%;
+  }
+  20% {
+    background-position : 40% 30%;
+  }
+  30% {
+    background-position : 20% 60%;
+  }
+  40% {
+    background-position : 30% 30%;
+  }
+  50% {
+    background-position : 100% 50%;
+  }
+  60% {
+    background-position : 100% 20%;
+  }
+  70% {
+    background-position : 100% 100%;
+  }
+  80% {
+    background-position : 50% 10%;
+  }
+  90% {
+    background-position : 10% 60%;
+  }
+  100% {
+    background-position : 0% 50%;
+  }
+}
+
+
+body {
+  overflow-x : hidden;
+
+  .grecaptcha-badge {
+    display : none;
+  }
+}
+
+section {
+  padding : $section-space 0;
+
+  p {
+    font-size : 20px;
+  }
+
+  &#services {
+    p {
+      color : white;
+    }
+
+    .nav {
+      .nav-item {
+        padding-left  : 10px;
+        padding-right : 10px;
+
+        &:first-child {
+          padding-left : 0;
+        }
+
+        &:last-child {
+          padding-right : 0;
+        }
+      }
+
+      .nav-link {
+        border           : 3px solid $primary;
+        border-radius    : $custom-radius-sm 0;
+        background-color : transparent;
+        padding-top      : 30px;
+        padding-bottom   : 30px;
+        position         : relative;
+        transition       : .2s all ease-in-out;
+
+        &.active {
+          border-color  : $secondary;
+          box-shadow    : 0 0 6px $secondary;
+          border-radius : 0 $custom-radius-sm;
+        }
+
+        .text {
+          //color : blue;
+        }
+
+        .icon {
+          position         : absolute;
+          top              : 0;
+          left             : 50%;
+          transform        : translate(-50%, -52%);
+          font-size        : 50px;
+          background-color : #0A0A0A;
+          padding          : 0 20px;
+        }
+      }
+
+
+    }
+  }
+
+
+  &#about {
+    clip-path : polygon(100% 150px, 100% 100%, 0 100%, 0 0);
+
+
+    //background-color : $primary-light;
+    position  : relative;
+
+    &:before {
+      content          : '';
+      position         : absolute;
+      inset            : 0;
+      z-index          : 5;
+
+      background-size  : 120% 120%;
+      //background-position : 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+      background-image : radial-gradient(18% 28% at 24% 50%, #8D00E1FF 7%, #073AFF00 100%),
+      radial-gradient(18% 28% at 18% 71%, #FFFFFF59 6%, #073AFF00 100%),
+      radial-gradient(70% 53% at 36% 76%, #8D00E1FF 0%, #073AFF00 100%),
+      radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%),
+      radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%),
+      radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%),
+      radial-gradient(31% 43% at 7% 98%, #FFFFFFFF 24%, #073AFF00 100%),
+      radial-gradient(21% 37% at 72% 23%, #5b008c9C 24%, #073AFF00 100%),
+      radial-gradient(35% 56% at 91% 74%, #8D00E1F5 9%, #073AFF00 100%),
+      radial-gradient(74% 86% at 67% 38%, #2B0041F5 24%, #073AFF00 100%),
+      linear-gradient(125deg, #8D00E1FF 1%, #2B0041FF 100%);
+
+      //background: radial-gradient(circle, $primary 0%, $primary-light 50%, $primary-dark 100%);
+      animation        : gradient-animation 40s ease-in-out infinite;;
+    }
+
+    .double-bar {
+      width    : 500px;
+      position : absolute;
+      left     : -130px;
+      top      : -106px;
+      z-index  : 1;
+      filter   : drop-shadow($box-shadow);
+    }
+
+    img {
+      position : relative;
+      z-index  : 2;
+      filter   : drop-shadow($box-shadow);
+    }
+
+    .content {
+      margin-top : 150px;
+      position   : relative;
+      z-index    : 10;
+    }
+  }
+
+  &#blog {
+    position : relative;
+
+    .double-bar {
+      position  : absolute;
+      right     : 0;
+      bottom    : 0;
+      transform : translate(50%, 50%) scaleX(-1);
+      z-index   : 20;
+    }
+  }
+
+  &#contact {
+    background-image  : url('../images/homepage/contact/computer-hand.jpg');
+    background-size   : 100% auto;
+    //width             : 100%;
+    background-repeat : no-repeat;
+    position          : relative;
+    z-index           : 10;
+
+    .double-bar {
+      position : absolute;
+      left     : -200px;
+      bottom   : 100px;
+      z-index  : 3;
+      width    : 500px;
+    }
+
+    &:after {
+      content    : '';
+      position   : absolute;
+      inset      : 0;
+      z-index    : 1;
+      background : rgba(#0A000D, .9);
+    }
+
+    &:before {
+      content    : '';
+      position   : absolute;
+      bottom     : 0;
+      left       : 0;
+      width      : 100%;
+      height     : 400px;
+      z-index    : 2;
+      //background: rgb(0,0,0);
+      //background: transparent linear-gradient(to bottom, rgba(0,0,0,0.8995973389355743) 26%, rgba(130,34,173,1) 100%);
+      background : transparent linear-gradient(180deg, #00000000 0%, #8222AD 100%) 0% 0% no-repeat padding-box;
+    }
+
+    .content {
+      position : relative;
+      z-index  : 10;
+
+      form {
+        .form-floating:before {
+          background-color : transparent;
+        }
+
+        input, textarea {
+          background-color : rgba($primary, .1);
+          backdrop-filter  : blur(10px);
+          border           : 2px solid $primary;
+          box-shadow       : 0 0 0 rgba($primary-light, 0);
+          border-radius    : 0;
+
+          &#contact_firstname {
+            border-top-left-radius : $custom-radius-sm;
+          }
+
+          &#contact_lastname {
+            border-top-right-radius : $custom-radius-sm;
+          }
+
+          &#contact_message {
+            border-bottom-left-radius  : $custom-radius-sm;
+            border-bottom-right-radius : $custom-radius-sm;
+          }
+
+          &:focus {
+            border     : 2px solid $primary;
+            box-shadow : 0 0 5px $primary-light;
+          }
+
+        }
+
+        textarea {
+          min-height : 100px;
+          max-height : 500px;
+          @include customScrollBar;
+        }
+
+        label {
+          padding-left : 35px;
+        }
+      }
+    }
+
+
+    @keyframes breathSuccess {
+      0% {
+        box-shadow : 0 0 10px rgba($success, .3);
+      }
+      50% {
+        box-shadow : 0 0 10px $success;
+      }
+      100% {
+        box-shadow : 0 0 10px rgba($success, .3);
+      }
+    }
+    @keyframes breathForm {
+      0% {
+        box-shadow : 0 0 15px rgba($primary, .3);
+      }
+      50% {
+        box-shadow : 0 0 15px rgba($primary, .8);
+      }
+      100% {
+        box-shadow : 0 0 15px rgba($primary, .3);
+      }
+    }
+    @keyframes icon-line-tip {
+      0% {
+        width : 0;
+        left  : 1px;
+        top   : 19px;
+      }
+      54% {
+        width : 0;
+        left  : 1px;
+        top   : 19px;
+      }
+      70% {
+        width : 50px;
+        left  : -8px;
+        top   : 37px;
+      }
+      84% {
+        width : 17px;
+        left  : 21px;
+        top   : 48px;
+      }
+      100% {
+        width : 25px;
+        left  : 14px;
+        top   : 45px;
+      }
+    }
+    @keyframes icon-line-long {
+      0% {
+        width : 0;
+        right : 46px;
+        top   : 54px;
+      }
+      65% {
+        width : 0;
+        right : 46px;
+        top   : 54px;
+      }
+      84% {
+        width : 55px;
+        right : 0px;
+        top   : 35px;
+      }
+      100% {
+        width : 47px;
+        right : 8px;
+        top   : 38px;
+      }
+    }
+    @keyframes rotate-circle {
+      0% {
+        transform : rotate(-45deg);
+      }
+      5% {
+        transform : rotate(-45deg);
+      }
+      12% {
+        transform : rotate(-405deg);
+      }
+      100% {
+        transform : rotate(-405deg);
+      }
+    }
+
+
+    .success-message {
+      .success-checkmark {
+        width  : 80px;
+        height : 115px;
+        margin : 0 auto;
+
+        .check-icon, .icon-line {
+          box-shadow : 0 0 5px $success;
+          transition : .2s ease-in-out all;
+          animation  : 2s linear infinite breathSuccess;
+        }
+
+        .check-icon {
+          width         : 80px;
+          height        : 80px;
+          position      : relative;
+          border-radius : 50%;
+          box-sizing    : content-box;
+          border        : 4px solid $success;
+
+          &:before {
+            top              : 3px;
+            left             : -2px;
+            width            : 30px;
+            transform-origin : 100% 50%;
+            border-radius    : 100px 0 0 100px;
+          }
+
+          &:after {
+            top              : 0;
+            left             : 30px;
+            width            : 60px;
+            transform-origin : 0 50%;
+            border-radius    : 0 100px 100px 0;
+            animation        : rotate-circle 4.25s ease-in;
+          }
+
+          &::before, &::after {
+            content   : '';
+            height    : 100px;
+            position  : absolute;
+            //background: #FFFFFF;
+            transform : rotate(-45deg);
+          }
+
+          .icon-line {
+            height           : 5px;
+            background-color : $success;
+            display          : block;
+            border-radius    : 2px;
+            position         : absolute;
+            z-index          : 10;
+
+            &.line-tip {
+              top       : 46px;
+              left      : 14px;
+              width     : 25px;
+              transform : rotate(45deg);
+              animation : icon-line-tip 0.75s;
+            }
+
+            &.line-long {
+              top       : 38px;
+              right     : 8px;
+              width     : 47px;
+              transform : rotate(-45deg);
+              animation : icon-line-long 0.75s;
+            }
+          }
+
+          .icon-circle {
+            top           : -4px;
+            left          : -4px;
+            z-index       : 10;
+            width         : 80px;
+            height        : 80px;
+            border-radius : 50%;
+            position      : absolute;
+            box-sizing    : content-box;
+            border        : 4px solid rgba($success, .5);
+          }
+
+          .icon-fix {
+            top       : 8px;
+            width     : 5px;
+            left      : 26px;
+            z-index   : 1;
+            height    : 85px;
+            position  : absolute;
+            transform : rotate(-45deg);
+            //background-color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+}

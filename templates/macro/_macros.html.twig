@@ -1,0 +1,20 @@
+{% macro mainBtnAnimated(text,link) %}
+    <div class="main-btn-animated-container">
+{#        <div class="main-btn-animated-container-back"></div>#}
+        {% if link is null %}
+            <button type="submit" class="main-btn main-btn-secondary">
+                <span class="gradiant"></span>
+                <span class="text">
+                    {{ text|raw }}
+                </span>
+            </button>
+        {% else %}
+            <a href="{{ link }}" class="main-btn main-btn-secondary">
+                <span class="gradiant"></span>
+                <span class="text">
+                    {{ text|raw }}
+                </span>
+            </a>
+        {% endif %}
+    </div>
+{% endmacro %}

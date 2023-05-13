@@ -40,7 +40,7 @@ class ContactRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Contact[] Returns an array of Contact objects
+//     * @return ContactFixtures[] Returns an array of ContactFixtures objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class ContactRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Contact
+//    public function findOneBySomeField($value): ?ContactFixtures
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

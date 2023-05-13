@@ -1,0 +1,65 @@
+.actuality-card {
+  border-radius    : $custom-radius-sm 0;
+  overflow         : hidden;
+  border-color     : $secondary;
+  border-width     : 3px;
+  box-shadow       : 0 0 20px #00000080;
+  height           : 100%;
+  background-color : $black;
+
+  .actuality-date {
+    font-size      : 15px;
+    letter-spacing : 0;
+    color          : $primary;
+    text-transform : uppercase;
+  }
+
+  .read-more {
+    font-size       : 15px;
+    letter-spacing  : 0;
+    color           : $secondary;
+    text-transform  : uppercase;
+    text-decoration : none;
+    display         : block;
+
+    i {
+      margin-left : 30px;
+      transition  : all ease-in-out .2s;
+    }
+
+    &:hover {
+      i {
+        margin-left : 45px;
+      }
+    }
+  }
+
+  img, .card-footer {
+    border-radius : 0;
+  }
+
+  &-row {
+    img {
+      height     : 100%;
+      object-fit : cover;
+    }
+
+    .card-body {
+      height          : 100%;
+      display         : flex;
+      flex-direction  : column;
+      justify-content : space-between;
+    }
+  }
+
+  &-content {
+    backdrop-filter : blur(10px);
+    border-color    : $primary;
+    box-shadow      : $box-shadow;
+
+
+    .card-body {
+      background-color : rgba($primary-dark, .4);
+    }
+  }
+}

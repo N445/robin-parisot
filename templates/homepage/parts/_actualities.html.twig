@@ -1,0 +1,19 @@
+{% import 'macro/_actuality.html.twig' as actualityMacro %}
+<div class="row align-items-center" data-aos="fade-up">
+    <div class="col-xxl-3">
+        <h1 class="main-title text-center">
+            <a href="{{ path('APP_ACTUALITIES') }}">
+                Blog
+            </a>
+        </h1>
+    </div>
+    <div class="col-xxl-7">
+        <div class="row">
+            {% for actuality in actualities %}
+                <div class="col-md">
+                    {{ actualityMacro.card(actuality) }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

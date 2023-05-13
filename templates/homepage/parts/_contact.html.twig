@@ -1,54 +1,25 @@
-<section id="contact">
-    {% include 'parts/_double-bar-svg.html.twig' with {classes:'double-bar-secondary double-bar-flipped'} %}
-    <div class="container-fluid">
-        <div class="row justify-content-end">
-            <div class="col-md-10">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="content" data-aos="fade-up">
-                            <h1 class="main-title text-center">Contact</h1>
-                            <p>
-                                Si vous êtes intéressé par mes services de développement web et de technologies
-                                front-end,
-                                n'hésitez pas à me contacter en utilisant le formulaire ci-dessous. Je serais heureux de
-                                discuter de votre projet et de vous proposer une solution adaptée à vos besoins.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        <div class="content" data-aos="fade-up">
-                            {{ form_start(form) }}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        {{ form_row(form.firstname) }}
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        {{ form_row(form.lastname) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                {{ form_row(form.email) }}
-                            </div>
-                            <div class="mb-5">
-                                {{ form_row(form.message) }}
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="main-btn">
-                                    Envoyer
-                                </button>
-                            </div>
-                            {{ form_end(form) }}
-                        </div>
-                    </div>
-                </div>
-            </div>
+{% import 'macro/_macros.html.twig' as macros %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="content" data-aos="fade-up">
+            <h1 class="main-title text-center">Contact</h1>
+            <p>
+                Si vous êtes intéressé par mes services de développement web et de technologies
+                front-end,
+                n'hésitez pas à me contacter en utilisant le formulaire ci-dessous. Je serais heureux de
+                discuter de votre projet et de vous proposer une solution adaptée à vos besoins.
+            </p>
         </div>
     </div>
-</section>
-
+</div>
+<div class="row justify-content-center">
+    <div class="col-xl-6 col-xxl-4">
+        <div class="content" data-aos="fade-up">
+            {{ component('contact',{
+                contact: contact,
+                form: form
+            }) }}
+        </div>
+    </div>
+</div>
