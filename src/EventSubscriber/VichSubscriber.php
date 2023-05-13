@@ -8,8 +8,6 @@ class VichSubscriber implements EventSubscriberInterface
 {
     public function onVichUploaderPreUpload($event): void
     {
-     dump($event);
-     die;
     }
 
     public static function getSubscribedEvents(): array
