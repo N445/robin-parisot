@@ -53,7 +53,7 @@ class Actuality
     private ?string $type = null;
 
     #[ORM\Column]
-    private ?bool $is_edited = null;
+    private ?bool $is_edited = false;
 
     public function __construct()
     {
