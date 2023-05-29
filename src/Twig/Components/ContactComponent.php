@@ -3,10 +3,12 @@
 namespace App\Twig\Components;
 
 use App\Entity\Contact;
+use App\Event\ContactSendEvent;
 use App\Form\ContactType;
-use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -29,7 +31,7 @@ final class ContactComponent extends AbstractController
     public Contact $contact;
 
     public function __construct(
-        private readonly ContactRepository $contactRepository
+        private readonly EventDispatcherInterface $eventDispatcher
     )
     {
         $this->site_key = $_ENV['RECAPTCHA3_KEY'];
@@ -50,7 +52,12 @@ final class ContactComponent extends AbstractController
 
         /** @var Contact $contact */
         $contact = $form->getData();
-        $this->contactRepository->save($contact, true);
+
+        $this->eventDispatcher->dispatch(
+            new ContactSendEvent($contact),
+            ContactSendEvent::NAME
+        );
+
         $this->isSuccessful = true;
     }
 }

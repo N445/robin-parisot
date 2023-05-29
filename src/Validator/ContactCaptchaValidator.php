@@ -9,7 +9,6 @@ class ContactCaptchaValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {
-        dump($value);
         /* @var App\Validator\ContactCaptcha $constraint */
         if(null === $value || '' === $value){
             // TODO: implement the validation here

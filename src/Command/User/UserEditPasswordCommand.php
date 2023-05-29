@@ -4,6 +4,7 @@ namespace App\Command\User;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Schema\Table;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -47,6 +48,8 @@ class UserEditPasswordCommand extends Command
             return Command::FAILURE;
         }
 
+        UserTableRendertator::render($output, $user);
+
         $question = new Question('Entrer son mot de passe : ');
         $question->setHidden(true);
         $question->setHiddenFallback(false);
@@ -54,7 +57,7 @@ class UserEditPasswordCommand extends Command
 
         $user->setPassword($password);
 
-        dump($user);
+        UserTableRendertator::render($output, $user);
 
         $question = new ConfirmationQuestion('Confirmer la création ? (Y/n)', true);
 

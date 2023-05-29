@@ -48,7 +48,6 @@ class ActualityCrudController extends AbstractCrudController
     #[Route('/upload-file', name: 'UPLOAD_FILE')]
     public function list(Request $request): Response
     {
-        dump($request);
         return $this->json([]);
     }
 
