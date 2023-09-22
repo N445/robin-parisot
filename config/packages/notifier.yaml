@@ -11,8 +11,7 @@ framework:
         channel_policy:
             # use chat/slack, chat/telegram, sms/twilio or sms/nexmo
             urgent: ['email']
-            high: ['email']
-            medium: ['email']
-            low: ['email']
+            low: ['chat/discord']
+            contact: ['email','chat/discord']
         admin_recipients:
             - { email: '%env(ADMIN_RECIPIENT)%' }

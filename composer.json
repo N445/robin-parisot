@@ -15,25 +15,30 @@
         "knplabs/knp-paginator-bundle": "^6.2",
         "liip/imagine-bundle": "^2.10",
         "sonata-project/seo-bundle": "^3.6",
-        "symfony/asset": "6.2.*",
-        "symfony/console": "6.2.*",
-        "symfony/discord-notifier": "6.2.*",
-        "symfony/dotenv": "6.2.*",
-        "symfony/finder": "6.2.*",
+        "symfony/asset": "6.3.*",
+        "symfony/console": "6.3.*",
+        "symfony/discord-notifier": "6.3.*",
+        "symfony/doctrine-messenger": "6.3.*",
+        "symfony/dotenv": "6.3.*",
+        "symfony/finder": "6.3.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "6.2.*",
+        "symfony/framework-bundle": "6.3.*",
+        "symfony/mailer": "6.3.*",
         "symfony/maker-bundle": "^1.48",
+        "symfony/messenger": "6.3.*",
         "symfony/monolog-bundle": "^3.0",
-        "symfony/notifier": "6.2.*",
-        "symfony/runtime": "6.2.*",
-        "symfony/twig-bundle": "6.2.*",
+        "symfony/notifier": "6.3.*",
+        "symfony/runtime": "6.3.*",
+        "symfony/twig-bundle": "6.3.*",
         "symfony/ux-live-component": "^2.7",
         "symfony/ux-twig-component": "^2.7",
-        "symfony/validator": "6.2.*",
-        "symfony/var-dumper": "6.2.*",
+        "symfony/validator": "6.3.*",
+        "symfony/var-dumper": "6.3.*",
         "symfony/webpack-encore-bundle": "^1.16",
-        "symfony/yaml": "6.2.*",
+        "symfony/yaml": "6.3.*",
+        "twig/cssinliner-extra": "^3.7",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/inky-extra": "^3.7",
         "twig/twig": "^2.12|^3.0",
         "vich/uploader-bundle": "^2.1"
     },
@@ -83,13 +88,13 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.2.*"
+            "require": "6.3.*"
         }
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
-        "symfony/debug-bundle": "6.2.*",
-        "symfony/stopwatch": "6.2.*",
-        "symfony/web-profiler-bundle": "6.2.*"
+        "symfony/debug-bundle": "6.3.*",
+        "symfony/stopwatch": "6.3.*",
+        "symfony/web-profiler-bundle": "6.3.*"
     }
 }
